@@ -136,6 +136,10 @@ TDD, test coverage, quality assurance
 Documentation standards, inline comments
 - Coming soon
 
+### 🛠️ marketplace-tools
+Tools for managing and developing Skywind marketplace plugins
+- `plugin-development-agent` - Comprehensive rules for AI agents creating marketplace plugins
+
 ## Featured Plugin: Strict Verification Rules
 
 **The most important plugin for any serious project**
@@ -197,6 +201,7 @@ Plugins install to different locations based on the tool:
 | Plugin | Claude Code | Cursor | Windsurf | Copilot |
 |--------|------------|--------|----------|---------|
 | strict-verification | ✅ | ✅ | ✅ | ❌ |
+| plugin-development-agent | ✅ | ✅ | ✅ | ❌ |
 
 ## Benefits
 
@@ -282,6 +287,7 @@ A: If it reads rule files (like .cursorrules), it should work. Test and let us k
 - [x] Core marketplace structure
 - [x] Anti-hallucination plugins
 - [x] Installation scripts
+- [x] Marketplace development tools
 - [ ] Code quality plugins
 - [ ] Security plugins
 - [ ] Web-based catalog interface
