@@ -1,0 +1,48 @@
+{
+  "id": "marketplace-tools/plugin-development-agent",
+  "name": "Plugin Development Agent",
+  "version": "1.0.0",
+  "description": "Comprehensive rules for AI agents creating Skywind marketplace plugins. Enforces standards, quality gates, git workflow, and ensures compatibility with Claude Code and Cursor (minimum requirement).",
+  "category": "marketplace-tools",
+  "compatibility": {
+    "claudeCode": true,
+    "cursor": true,
+    "windsurf": true,
+    "copilot": false,
+    "other": ["Cline", "Aider"]
+  },
+  "author": {
+    "name": "Skywind Platform",
+    "email": "devops@skywind.com"
+  },
+  "keywords": [
+    "plugin-development",
+    "marketplace",
+    "standards",
+    "quality-assurance",
+    "git-workflow",
+    "documentation",
+    "metadata",
+    "compatibility",
+    "testing",
+    "validation"
+  ],
+  "license": "MIT",
+  "installationPath": {
+    "claudeCode": ".claude/rules/",
+    "cursor": ".cursorrules",
+    "windsurf": ".windsurf/rules/"
+  },
+  "dependencies": [],
+  "conflictsWith": [],
+  "tags": [
+    "recommended",
+    "stable",
+    "enterprise",
+    "meta",
+    "development"
+  ],
+  "changelog": "CHANGELOG.md",
+  "createdAt": "2025-10-14T00:00:00Z",
+  "updatedAt": "2025-10-14T00:00:00Z"
+}
