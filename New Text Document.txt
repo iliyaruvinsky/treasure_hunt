@@ -1,0 +1,40 @@
+Streamlined SAP Vulnerability Assessment Landing Page
+Header Section
+Main Headline: "SAP Treasure Hunt: Discover Hidden Value in Your SAP Environment"
+Subheading: "From quick insights to complete control — start your journey with a 4-week proof of value"
+CTA Button: "Start Your Treasure Hunt"
+Value Proposition (Brief 2-3 sentences)
+"Our Treasure Hunting approach identifies critical SAP vulnerabilities with minimal commitment. Begin with a focused 4-week assessment that delivers immediate ROI, then scale based on proven value."
+Three-Step Journey (Simple visual with icons)
+Discover - "Identify high-impact issues in your SAP environment"
+Implement - "Address immediate concerns with targeted controls"
+Expand - "Gradually extend to comprehensive SAP governance"
+Real Results (3 compact examples with metrics)
+"€240,000 in unbilled services recovered"
+"Fraudulent vendor payment attempt detected and prevented"
+"Purchase order processing time reduced by 70%"
+Simple Process Timeline
+A compact horizontal timeline showing the 4-week implementation:
+Week 1: Connection & Initial Alerts
+Week 2: First Discoveries
+Week 3: Production Implementation
+Week 4: Value Assessment & Next Steps
+Growth Path (Brief visual)
+Simple progression graphic showing:
+Start: Treasure Hunting (20-30 controls)
+Grow: Expand monitoring scope
+Optimize: Implement additional Skywind products
+Qualification Form (Minimal fields)
+Company name
+SAP environment (dropdown)
+Primary concern (dropdown)
+Contact information
+Trust Elements
+3-4 client logos
+Single testimonial quote
+Implementation success statistic
+Final CTA
+Primary Button: "Begin Your SAP Treasure Hunt"
+Secondary Link: "Learn More About Our Platform"
+This streamlined version maintains the key message of the journey from initial proof to expanded implementation while being much more concise and focused on conversion.
+

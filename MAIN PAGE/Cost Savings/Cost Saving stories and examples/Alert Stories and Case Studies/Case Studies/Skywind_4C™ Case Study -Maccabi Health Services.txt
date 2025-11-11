@@ -1,0 +1,56 @@
+
+Name: Maccabi Health Services 
+
+
+Head office Location: Tel Aviv, Israel 
+Industry: Health Fund Services, Drug Distribution 
+The Story: Maccabi Healthcare Services has implemented Skywind 4C™ - a command and control system to monitor the infrastructure and applicative business processes of SAP environments. 
+Maccabi Health Services runs an SAP enterprise systems with more than 14,000 SAP users, having a diverse SAP environments: ECC, BW, SAP Portal, GRC, BO. SAP system handles critical processes in the areas of human resources, finance, logistics, payments to independent physicians (ICM), maintenance, real estate and other modules. SAP's implementation of Maccabi requires monitoring and identifying problems quickly and efficiently, while focusing on important processes. About six months ago, 4C™ was incorporated into Maccabi to monitor and control these processes. 4C™ was chosen by Maccabi for its flexible platform and a collection of special Alerts, which are not available in SAP internal applications or Solution Manager. 
+ 
+Challenges and tasks prior to 4C™ implementation: 
+• Increased efficiency - sending messages to recipients dynamically, according to the content of the event and / or by the person who created the controlled process. 
+
+• Automatic response - repair of some system malfunctions. 
+
+• Early detection - pro-active identification of upcoming malfunctions. 
+
+• Increased focus - differentiation between "negligible" and "serious" faults. 
+
+• Response times - shortening time in response to infrastructure failures (BASIS) and BW failures. 
+
+• Concentration of the interface and monitoring activity in one place. 
+
+• Effective management and control of all SAP systems. 
+
+• Ensuring the availability of end-to-end critical processes 24/7. 
+
+• Automate the monitoring and stabilization of critical processes. 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+Ofer Zeinfeld, SAP's SAP Operations Manager, says: 
+ "SAP is an enterprise critical system that runs thousands of activities a day. Implementation of Skywind 4C™ enabled us to effectively control exceptional activities that are monitored before organizational processes are affected or invalidated. We are about to extend the 4C™ usage into the business field, and to inform key figures in the various divisions about unusual activities that were carried out (or not) in their areas of responsibility. The examples of such failures could be: to receive bank statements on a daily basis or non-updating currency rates, unusual purchase orders, etc. Exceptional events revealed in advance by business processes on an ongoing basis. In retrospect, they can save the organization money in complex systems such as SAP, which is impossible to monitor manually. " 
+ 
+Arie Zohar - responsible for BW monitoring operations 
+"The implementation of 4C™ enables our team to "keep a hand on a pulse" and ensure that the critical job runs are completed in time and properly, the processes of loading the InfopProviders do not get stuck," says Arie Zohar, who is responsible for monitoring of BW processes at Maccabi. Using 4C™ we have a full control of keeping connectivity between the BW and the Informatica and other external systems. 4C™ ensures a smooth and orderly process of transferring developments from the development to productive systems. In every step, if an object passes incorrectly, 4C™ immediately notifies that there is a problem and identifies each object. The BW team now being freed from the unnecessary preoccupation with  "deep excavations" in the BW systems and provided with an ability to reveal problems and identify the root-cause reasons behind it in real time". 
+With 4C™, the BW team controls all the processes, the most important of which are: 
+Jobs running longer/shorter than expected, daily monitoring of all uploads in the BW system and the BW on the ECC side, Process Chains runs that were failed or did not start, the availability of Informatica servers, updates of critical Master Data into BW (e.g. Profit Centers, Cost Centers etc.). 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+BASIS: Barak Tal - SAP BASIS and Infrastructure manager: 
+"4C™ has enabled us to focus on net infrastructure processes, regardless of operating systems, or database" said Barak Tal, SAP Infrastructure Manager at Maccabi, "4C™'s  SMS mechanism helps the team respond optimally by exposing critical issues that come to our mobile devices in a push. One benefit is in partner documentation and early detection of incorrect events that occurred or exposure of processes that were expected to take place but did not occur at all, and it helps us to pre-empt the impact before the problems reach SAP system users at all levels of the organization. 4C kit comes with hundreds of out-of-the-box alerts that can be run as is, based on the experience of many organizations using the system. Barak emphasizes that "with the help of 4C™, the infrastructure team controls the entire process, including: billing, strict orders, standard locks and old locks (TRFSS and RFSS), various queues, availability of testing of NON SAP systems, receiving external files entering SAP, failing updates, sending mail and SMS, and many other tests. " 
+ 
+In addition, SAP's development team at Maccabi developed a number of special tests for the organization and added them to the 4C™ platform. The development in this case is not different from any other ABAP development and does not require special knowledge. 
+ 
+

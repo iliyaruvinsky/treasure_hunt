@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp:*)",
+      "Bash(Copy-Item:*)",
+      "Bash(git --version)",
+      "Bash(git config:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git reset:*)",
+      "Bash(git commit:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(powershell:*)",
+      "Bash(dir \".claude\\rules\")",
+      "Bash(./scripts/install.sh:*)",
+      "Bash(mkdir:*)",
+      "Bash(git checkout:*)",
+      "WebSearch",
+      "Bash(git merge:*)",
+      "Bash(git pull:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "powershell -NoProfile -File \".claude\\statusline.ps1\""
+  }
+}

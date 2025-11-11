@@ -1,0 +1,2553 @@
+
+Safeguarding SAP Business Continuity with Skywind
+
+Proactive Prevention and Control of Business Disruptions
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Skywind Profile
+
+Development of
+Skywind Analytical Platform
+for SAP Cloud based SAP® related solutions
+
+Design and implementation of SAP Business Intelligence,
+Performance Management, Planning and Data
+Warehousing solutions.
+
+Development, optimization and maintenance of SAP
+Infrastructure (Basis) incl. SAP upgrades and migrations
+to HANA On Premises and On Cloud.
+
+Development, optimization and maintenance of SAP
+Infrastructure (Basis) incl. SAP upgrades and migrations
+to HANA On Premises and On Cloud.
+
+Software
+
+Solutions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Protect Your Business, Control Your Processes
+The SkyAPSAreas of Appliance:
+
+Fraud
+
+Cyber
+
+to increase the transparency of all SAP activities
+by enhancing control upon business and
+technical events and processes
+
+to gain visibility, agility, better
+management, analysis and control of SAP
+background jobs
+
+to prevent unwanted outcomes and quickly
+compensate the damage by diminishing the
+consequences and restraining further risks
+
+SoD & Authorizations
+
+to identify fraud, reveal problems and
+bottlenecks earlier, to protect against
+cyber threats
+
+to analyze and monitor your segregation of
+duties, perform in-depth authorizations
+analysis and inform you in real time about
+corresponding suspicious activities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Protect Your Business, Control Your Processes
+The SkyAPSSolutions Pool:
+
+Skywind 4C
+
+Skywind JAM
+
+to increase the transparency of all SAP activities
+by enhancing control upon business and
+technical events and processes
+
+to gain visibility, agility, better
+management, analysis and control of SAP
+background jobs
+
+to identify fraud, reveal problems and   
+bottlenecks earlier, to protect against
+cyber threats
+
+Skywind SoDA
+
+to prevent unwanted outcomes and quickly
+compensate the damage by diminishing the
+consequences and restraining further risks
+
+to analyze and monitor your segregation of
+duties, perform in-depth authorizations analysis
+and inform you in real time about corresponding
+suspicious activities
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Solutions and Content
+
+SKYWIND ANALYTICAL PLATFORM FOR SAP
+
+and monitoring
+
+Analytics                           Monitoring                          Alerting                          SmartDataDistribution
+
+Fraud & Cyber detection
+Business Processes monitoring
+Infrastructure, Communications, Interfaces monitoring
+Business Warehouse monitoring
+
+Background  Jobs analysis and monitoring
+Background  Jobs management and optimization
+
+Segregation  of Duties
+(SoD) analysis
+and monitoring
+Authorizations analysis
+
+YOUR SAP
+
+S/4HANA     ·    ECC    ·    BW    ·    CRM    ·    SRM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+TM
+
+SkyAPSSelected Customers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Solutions and Content
+
+Business Disruptions and Bottlenecks
+Identify, prevent, eliminate or compensate problems and inefficiencies to ensure smooth business operations
+
+Cybersecurity
+Strengthen your defenses against internal SAP cyber threats with advanced security tracking
+
+Technical Infrastructure Hurdles
+Overcome technical SAP challenges with robust monitoring, observability, and optimization tools
+
+Authorizations and Access Control
+Manage and monitor user permissions and activities to enhance security and compliance
+
+Fraud Detection
+Proactively detect and prevent fraudulent activities within your SAP environment
+
+Compliance
+Maintain adherence to internal policies and external regulations effortlessly
+
+Segregation of Duties
+Ensure clear role distinctions to prevent conflicts and unauthorized access
+
+No-Code, Tailor Made Report Generator
+Instant, automated, no-code, real-time SAP reporting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Productsand Content
+
+Skywind 4CAnti Fraud and Cyber Pack
+for ultimate SAP protection against cyber attacks and internal fraud
+
+Skywind 4CGenerator
+for instant, no-code creation of your own controls and reports
+
+Skywind 4CBusiness Bottlenecks Pack
+for superior business control and transparency
+
+Skywind SoDASoD and Authorizations Violations Analysis
+–to eliminate and prevent SoD violations and protection
+against internal fraud
+
+Skywind 4CBasis and Infrastructure Pack
+for continuous validation of SAP technical consistency and performance
+
+Skywind JAMSAP Background Jobs Analysis and Control
+to analyze, control and optimize all SAP Background Jobs activities
+
+Skywind 4CBusiness Warehouse (BW) Pack
+for smooth BW operation and maintenance
+
+Security and Administration App.
+Internal application for ultimate control of platform usage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Skywind 4CBusiness Continuity Pack
+for Smooth and Stable SAP Operation
+
+Financial Accounting
+
+Purchasing
+
+Master Data Management
+
+Sales and Logistics
+
+Stock and Inventory
+
+Controlling
+
+
+Logs Analysis
+
+
+
+Human Resources
+
+Instant, tailor made, no-code, automated, real-time SAP reporting by SkywindGenerator
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+01. Financial Accounting –process controls
+
+E X A M P L E S :
+
+Exceptional postings by GL account
+Financial statements unreliable for business decisions, leading to wrong strategic planning
+
+Parked Documents Aging
+Late supplier payments damage vendor relationships and future procurement conditions
+
+Currency Rates Update Failed / Not Started
+Wrong pricing in financial documents  causes revenue loss and costly correction processes
+
+Incorrect Payment Terms (Contract vs. Financial Document)
+Cash flow disruption affects operational funding and investment capabilities
+
+Missing Document References (e.g. Invoice without PO)
+Audit failures lead to compliance penalties and increased external audit costs
+
+Previous Period Postings
+Month/year-end closing delays affect shareholder reporting and compliance deadlines
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+02. Master Data Management -process controls
+
+E X A M P L E S ( b y V e n d o r ) :
+
+Goods / Invoice Receipt User Violations
+Single user control of entire process enables theft through fake invoices
+
+Alternative Payee Assigned to a Vendor
+Misdirected payments create disputes with vendors and delivery stops
+
+Inactive / Rarely Used Vendor With Open Balance
+Hidden liabilities surface unexpectedly, disrupting planned cash flow
+
+Bank Account Changes & Quick Reversal 
+Fraudulent / Incorrect payments drain working capital and trigger costly recovery procedures
+
+One-Time Vendor Misuse 
+Bypass of vendor validation enables fraudulent payments and tax compliance issues
+
+Multiple Credential Changes 
+Unauthorized / Incorrect data changes enable payment fraud schemes and financial losses
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+03. Stock and Inventory –process controls
+
+E X A M P L E S :
+
+Missing Material Descriptions 
+Wrong material usage in production causes quality issues and recalls
+
+High Inventory Variances (booked vs. counted)
+Write-offs affect profitability and trigger expensive stock reorganization
+
+Inappropriate Material Conversions
+Inventory value manipulation possibly hides theft yet definitely affects production costing
+
+Material Price Fluctuations 
+Cost calculation errors lead to wrong pricing and margin erosion
+
+Inventory Count Discrepancies 
+Production stops due to phantom stock, emergency purchases at premium cost
+
+Blocked Materials Usage 
+Production delays from using restricted materials trigger contract penalties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+04. Purchasing –process controls
+
+E X A M P L E S :
+
+Long-Open Purchase Orders 
+Capital tied in outdated commitments blocks new strategic purchases
+
+PO vs. Invoice Terms Mismatch
+Payment disputes freeze critical supplier deliveries
+
+PO Creator Self-Approval 
+Fake purchases drain budget and create artificial stock shortages
+
+One-Time Vendor Overuse 
+Uncontrolled spending with unvetted suppliers risks quality and delivery reliability
+
+PO created retroactively
+(after the date placed in Vendor's invoice)
+Emergency purchases at premium prices erode planned margins and budgets
+
+Over delivery tolerance in PO was changed
+Since the Over delivery ﬂag does not trigger a re-approval process, there is a danger of misuse of this ﬂag
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+05. Sales and Logistics –anti fraud controls
+
+E X A M P L E S :
+
+Customer's credit limit was changed
+Possible ﬁnancial risk exposure
+
+Missing Proof Of Delivery (POD) Confirmation 
+Revenue collection delays create cash flow gaps and banking covenant issues
+
+Billing Document Posting Failure 
+Revenue recognition delays affect company valuation and investor confidence
+
+Deliveries Not Billed After Goods Issue Missing revenues create artificial cash flow crisis forcing expensive emergency financing
+
+Zero Quantity Detection 
+System allows ghost orders affecting production planning and capacity
+
+Sales Order Quantity Min/Max Violation
+Misbehavior leading to possible money loss or fraud
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+06. Controlling and Profitability Analysis
+
+E X A M P L E S :
+
+COPA Update Errors (CEERROR)
+Wrong profitability analysis leads to incorrect strategic business decisions
+
+CO Internal Orders 
+Project cost tracking fails leading to budget overruns and wrong customer billing
+
+Open Commitments 
+Hidden financial obligations surface unexpectedly disrupting budget planning
+
+Cost Center Reconciliation 
+Management reporting inaccuracies cause wrong operational decisions
+
+Settlement Rules Missing 
+Cost allocation failures create artificial profit/loss in business units
+
+Internal Pricing Issues 
+Transfer pricing errors create tax compliance risks and penalties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+07. Human Capital Management
+
+E X A M P L E S :
+
+Employee-User Link Missing 
+Ex-employee access remains active creating security breach risks
+
+Hiring Process Gaps 
+New employee productivity delayed by missing system access and equipment
+
+Position Changes 
+Wrong authorization assignments enable process violations and fraud
+
+Birthday/Anniversary Tracking 
+Employee engagement drops affecting productivity and retention
+
+Employee Events Tracking 
+Missing equipment returns and/or access revocations create security gaps
+
+Manager Notifications 
+Resource planning gaps create project delivery delays
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+Potential Impact: SAPOperational Efﬁciencyand Business Disruptions
+
+E X A M P L E S :
+
+SM20:  Analysis of Security Audit Log -Details
+Impact: unauthorized access attempts, suspicious transactions, user activity patterns, changes to sensitive data
+
+SM21: Analysis of System Log -Details
+Impact: system errors, warnings, performance issues, background job status, user logon/logout activities
+
+SM20: Analysis of Security Audit Log -Anomalies
+Impact: unauthorized access attempts, suspicious transactions, user activity patterns, changes to sensitive data (en masse)
+
+SM21: Analysis of System Log -Anomalies
+Impact: system errors, warnings, performance issues, background job status, user logon/logout activities (en masse)
+
+SM21: Analysis of Debugging Log -Details
+Impact: program execution, variable values, error messages, program ﬂow, and potential debugging issues
+
+SCU3: Analysis of Change Log (CDHDR / CDPOS)
+Impact: changes made to critical data objects, including who made the changes, when they were made, and the old and new values, aiding in audit trails, compliance and data integrity maintenance
+
+SLG1: Analysis of Application Log -Details
+Impact: potential processing bottlenecks, leading to delays in data transmission and potential system instability
+
+DB20:AnalysisofDBTABLOG
+Impact:detailedrecordsofdatabasetablechanges,includinginsertions,updates,deletions,andtheassociateduserinformation,timestamps,andaffectedﬁelds
+
+SAP Logs Monitoring Analysis
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+06. Cyber Controls
+
+E X A M P L E S :
+
+Login to the DIALOG user's system using a password
+and not by using Single Sign ON
+Violation of secured Logon
+
+Activation of critical SAP Business / Technical
+processes via transactions
+Unsecured transaction start
+
+Creating a DIALOG user by NOT authorized parties
+(not by Authorizations/Basis team)
+Cyber related changes made to User Master
+
+Activating transactions by unauthorized DIALOG users
+Successful run of a transaction even when a user is not authorized to activate it
+
+Notiﬁcation of granting/receiving critical authorization
+(e.g., SAP_ALL/SAP_NEW)
+Potential to a malicious, unauthorized grant of critical rights in the SAP system
+
+Any system update through DEBUG, performed
+by the SYSTEM / DIALOG user
+Unacceptable and dangerous action
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Integration with SOC / SIEM Platforms
+
+B E N E F I T S:Pushes pre-filtered SAP data instead of raw logs, dramatically reducing SIEM processing costs while providing laser-focused security insights.
+
+P R O T O C O L S:
+
+Syslog Protocol
+Centralized Logging: Centralize logs from various devices, systems, and software applications into a single repository.
+Security Monitoring: Used in security information and event management (SIEM) systems
+
+Web Services
+Use Case: Synchronize data flows between SAP and Non-SAP systems such as CRM, eCommerce platforms, or custom databases.
+Benefit: Ensures consistency and accuracy of data across different systems, improving operational efficiency and reducing errors.
+
+Files Transfers 
+Impact:  Interruptions or errors in file transfers can lead to data loss, incomplete data records, and compliance risks, especially in data-driven decision-making environments
+
+Enable SAP insights within your Security Operation Center (SOC)
+
+S U P PO R T E D    P L A T F O R M S:
+
+
+
+
+
+IBM QRadar integration for Maltego
+
+
+
+
+
+
+
+Microsoft Sentinel Partner | WithSecure™
+
+TrustNet. SOC-as-a-Service Company
+
+Branding Guidelines | LogRhythm
+Exabeam - CyberCompare
+Micro Focus ArcSight ESM | EclecticIQ
+
+Securonix – The Official Cybersecurity Summit
+
+
+
+info@skywind.com|  www.skywind.com
+
+SkyAPSAlerting Cockpit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+Skywind 4CNotification Output (some fields are  masked)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+Skywind 4CAnalytical View
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+Skywind 4C-Templates Catalog
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com|  www.skywind.com
+
+Skywind 4C-Create Your Own Content (no-code)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+Realise Tangible Benefits
+
+Reduce manual effort
+through an automated business rule engine.
+
+Prevent fraud with
+proactive alerts and comprehensive insights.
+
+Optimize the way you do
+business by identifying process bottlenecks or violations.
+
+Search your entire
+transactions database versus only a sample achieved during an audit.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+info@skywind.com
+
+|  www.skywind.com
+
+To Conclude...
+
+Our software continuously checks the validity of the processes by catching “bad”or “about to become bad” events. Sophisticated data distribution mechanisms seamlessly and securely distribute critical info to the right audiences.
+
+Bad Event
+
+Normal Event
+
+When mission critical data will start flowing securely, yet seamlessly across all organizational levels, timely reaching key users… only then will your company start a journey to the real Business Transformation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The Science of Data.
+The Art of Business.
+
+INFO@SKYWIND.COMWWW.SKYWIND.COM
+
+
+
+

@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>See It in Action: Real SAP Discoveries | Skywind</title>
+    <meta name="description" content="Explore real findings from actual SAP environments. See how Skywind discovered $750K+ in fraud, waste, and inefficiencies—and what it meant for their bottom line.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --secondary-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --accent-red: #ef4444;
+            --success-green: #10b981;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--gray-900);
+            background: var(--gray-50);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1e40af 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-top: 2rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tab {
+            padding: 1rem 2rem;
+            background: transparent;
+            border: none;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-bottom: 3px solid transparent;
+            position: relative;
+            top: 2px;
+        }
+
+        .tab:hover {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .tab.active {
+            color: white;
+            border-bottom-color: var(--accent-orange);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Filter Bar */
+        .filter-section {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .filter-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--gray-900);
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .filter-checkbox {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border: 2px solid var(--gray-200);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-checkbox:hover {
+            border-color: var(--secondary-blue);
+            background: var(--gray-50);
+        }
+
+        .filter-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 0.75rem;
+            cursor: pointer;
+            accent-color: var(--secondary-blue);
+        }
+
+        .filter-checkbox label {
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray-700);
+            flex: 1;
+        }
+
+        .filter-checkbox input[type="checkbox"]:checked + label {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        .filter-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .clear-filters {
+            background: transparent;
+            border: 2px solid var(--gray-300);
+            padding: 0.5rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--gray-700);
+            transition: all 0.2s;
+        }
+
+        .clear-filters:hover {
+            border-color: var(--gray-600);
+            background: var(--gray-100);
+        }
+
+        .results-count {
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 3rem 0;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .case-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .case-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--secondary-blue);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .card-badges {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .category-badge {
+            background: var(--accent-red);
+            color: white;
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .category-badge.fraud { background: var(--accent-red); }
+        .category-badge.revenue { background: var(--success-green); }
+        .category-badge.performance { background: var(--secondary-blue); }
+        .category-badge.compliance { background: #8b5cf6; }
+        .category-badge.infrastructure { background: #06b6d4; }
+        .category-badge.efficiency { background: #10b981; }
+
+        .industry-badge {
+            background: var(--gray-100);
+            color: var(--gray-700);
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-headline {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            min-height: 3.9rem;
+        }
+
+        .card-impact {
+            font-size: 1rem;
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .card-impact strong {
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        .card-cta {
+            background: var(--secondary-blue);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .card-cta:hover {
+            background: var(--primary-blue);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .modal-header {
+            padding: 2rem;
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            background: white;
+            z-index: 10;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--gray-100);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: var(--gray-200);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .modal-section h4 {
+            font-size: 1.25rem;
+            color: var(--gray-900);
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .modal-section p {
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .modal-section li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-700);
+        }
+
+        .modal-section li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .modal-quote {
+            background: var(--gray-50);
+            border-left: 4px solid var(--secondary-blue);
+            padding: 1.5rem;
+            font-style: italic;
+            color: var(--gray-700);
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .modal-cta {
+            background: var(--accent-orange);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+
+        .modal-cta:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--gray-50) 0%, white 100%);
+            padding: 4rem 0;
+        }
+
+        .cta-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .cta-header h2 {
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-header p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+        }
+
+        .cta-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            border: 2px solid var(--gray-200);
+            transition: all 0.3s;
+        }
+
+        .cta-card.featured {
+            border-color: var(--accent-orange);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+        }
+
+        .cta-card.featured::before {
+            content: "⭐ RECOMMENDED";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-orange);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .cta-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .cta-card h3 {
+            font-size: 1.75rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-card .subtitle {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-card ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .cta-card li {
+            padding: 0.5rem 0;
+            color: var(--gray-700);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .cta-card li::before {
+            content: "✓";
+            color: var(--success-green);
+            font-weight: bold;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .cta-button {
+            background: var(--secondary-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: all 0.2s;
+        }
+
+        .cta-card.featured .cta-button {
+            background: var(--accent-orange);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cta-card.featured .cta-button:hover {
+            background: #ea580c;
+        }
+
+        .cta-subtext {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .trust-section h2 {
+            font-size: 2rem;
+            color: var(--gray-900);
+            margin-bottom: 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+            font-size: 1rem;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: var(--gray-600);
+        }
+
+        .no-results h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Platform Tour */
+        .platform-tour {
+            padding: 3rem 0;
+        }
+
+        .tour-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .tour-header h2 {
+            font-size: 2.5rem;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .tour-header p {
+            font-size: 1.25rem;
+            color: var(--gray-600);
+        }
+
+        .tour-screen {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+
+        .tour-screen h3 {
+            font-size: 1.75rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .tour-screen .placeholder {
+            background: var(--gray-100);
+            border: 2px dashed var(--gray-300);
+            border-radius: 8px;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: var(--gray-600);
+            margin: 1.5rem 0;
+        }
+
+        .tour-screen p {
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .tour-screen ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .tour-screen li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--gray-700);
+        }
+
+        .tour-screen li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-blue);
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .tab.active {
+                border-left: 3px solid var(--accent-orange);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 1rem;
+            }
+
+            .modal-content {
+                max-height: 95vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>See It in Action: Real Discoveries, Real Platform</h1>
+            <p>Actual findings from client SAP environments—and what they meant for their bottom line</p>
+            
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="findings">Real Findings</button>
+                <button class="tab" data-tab="platform">Platform Tour</button>
+                <button class="tab" data-tab="stories">Customer Stories</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab 1: Real Findings -->
+    <div id="findings-tab" class="tab-content active">
+        <!-- Filter Section -->
+        <section class="filter-section">
+            <div class="container">
+                <h2>Show me findings related to:</h2>
+                <div class="filter-grid">
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-fraud" value="fraud">
+                        <label for="filter-fraud">Fraud & Financial Losses</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-revenue" value="revenue">
+                        <label for="filter-revenue">Revenue Recovery</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-performance" value="performance">
+                        <label for="filter-performance">System Performance</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-compliance" value="compliance">
+                        <label for="filter-compliance">Compliance & Security</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-infrastructure" value="infrastructure">
+                        <label for="filter-infrastructure">Technical Infrastructure</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-vendor" value="vendor">
+                        <label for="filter-vendor">Vendor & Procurement</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-efficiency" value="efficiency">
+                        <label for="filter-efficiency">Operational Efficiency</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-control" value="control">
+                        <label for="filter-control">Business Control</label>
+                    </div>
+                    <div class="filter-checkbox">
+                        <input type="checkbox" id="filter-optimization" value="optimization">
+                        <label for="filter-optimization">Resource Optimization</label>
+                    </div>
+                </div>
+                <div class="filter-actions">
+                    <button class="clear-filters">Clear All Filters</button>
+                    <span class="results-count">Showing <strong id="results-count">10</strong> of 10 findings</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery">
+            <div class="container">
+                <div class="cards-grid" id="cards-grid">
+                    <!-- Cards will be inserted by JavaScript -->
+                </div>
+                <div class="no-results" id="no-results" style="display: none;">
+                    <h3>No findings match your filters</h3>
+                    <p>Try selecting different categories or clearing all filters</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Tab 2: Platform Tour -->
+    <div id="platform-tab" class="tab-content">
+        <section class="platform-tour">
+            <div class="container">
+                <div class="tour-header">
+                    <h2>Interactive Platform Walkthrough</h2>
+                    <p>See how Skywind detects, analyzes, and reports these issues in real-time</p>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>1. Dashboard Overview - This is what you see daily</h3>
+                    <div class="placeholder">
+                        [Platform Screenshot: Main Dashboard]<br>
+                        Unified view across all SAP landscapes
+                    </div>
+                    <p>Unified view across all SAP landscapes with real-time KPIs, alert summaries, and system health indicators. The dashboard provides instant visibility into your entire SAP environment.</p>
+                    <p><strong>Key Features:</strong></p>
+                    <ul>
+                        <li>50+ exception indicators organized by category</li>
+                        <li>Real-time system health monitoring</li>
+                        <li>Critical alerts at a glance</li>
+                        <li>Multi-system landscape view</li>
+                    </ul>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>2. Control Library - 165+ pre-built controls across 9 categories</h3>
+                    <div class="placeholder">
+                        [Platform Screenshot: Control Library]<br>
+                        Pre-configured controls organized by category
+                    </div>
+                    <p>Choose from pre-configured controls or create custom ones in minutes using no-code Generator.</p>
+                    <p><strong>Control Categories:</strong></p>
+                    <ul>
+                        <li>Anti-Fraud & Cyber (30+ controls)</li>
+                        <li>Business Disruptions (40+ controls)</li>
+                        <li>Technical Infrastructure (20+ controls)</li>
+                        <li>Background Jobs (15+ controls)</li>
+                        <li>Access & Authorization (25+ controls)</li>
+                        <li>S/4HANA Post-Go-Live (35+ controls)</li>
+                    </ul>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>3. Alert Inbox - Critical findings appear here in real-time</h3>
+                    <div class="placeholder">
+                        [Platform Screenshot: Alert Inbox]<br>
+                        Real-time alert list with severity indicators
+                    </div>
+                    <p>Real-time notifications pushed to the right people via email, SMS, or dashboard. Dynamic recipient assignment based on alert content ensures the right person gets notified instantly.</p>
+                    <p><strong>Alert Features:</strong></p>
+                    <ul>
+                        <li>Priority sorting and filtering</li>
+                        <li>Severity-based color coding</li>
+                        <li>Dynamic assignment to responsible parties</li>
+                        <li>Multi-channel notifications (email, SMS, dashboard)</li>
+                    </ul>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>4. Investigation View - Click any alert to see complete context</h3>
+                    <div class="placeholder">
+                        [Platform Screenshot: Detailed Alert View]<br>
+                        Complete drill-down with affected records and users
+                    </div>
+                    <p>Every data point is traceable to source. See WHO did WHAT, WHEN, and WHY it matters. The investigation view provides complete forensic detail for every alert.</p>
+                    <p><strong>Investigation Capabilities:</strong></p>
+                    <ul>
+                        <li>Full audit trail with user information</li>
+                        <li>Historical pattern analysis</li>
+                        <li>Related alerts and events</li>
+                        <li>Drill-down to transaction level</li>
+                    </ul>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>5. Historical Analysis & Patterns - AI-powered detection</h3>
+                    <div class="placeholder">
+                        [Platform Screenshot: Trend Analysis & Anomaly Detection]<br>
+                        Pattern recognition with predictive indicators
+                    </div>
+                    <p>Detect mass abnormal activities: 300+ dumps in 10 minutes, 100+ failed jobs, prolonged locks, IDOC failures. AI-powered pattern recognition identifies issues before they become critical.</p>
+                    <p><strong>Pattern Detection:</strong></p>
+                    <ul>
+                        <li>Anomaly spike detection</li>
+                        <li>Threshold breach alerts</li>
+                        <li>Predictive failure indicators</li>
+                        <li>Historical trend analysis</li>
+                    </ul>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>6. Multi-System Integration - Monitor all SAP landscapes from one place</h3>
+                    <div class="placeholder">
+                        [Platform Screenshot: Multi-System Dashboard & SOC Integration]<br>
+                        Unified monitoring across all systems
+                    </div>
+                    <p>Supports S/4HANA, ECC, BW, CRM, SRM. Integrates with Splunk, QRadar, Sentinel, LogRhythm, and more via Syslog, Web Services, File Transfers.</p>
+                    <p><strong>Integration Features:</strong></p>
+                    <ul>
+                        <li>Cross-system unified alerts</li>
+                        <li>SOC/SIEM integration (Splunk, QRadar, Sentinel, etc.)</li>
+                        <li>Multiple protocol support (Syslog, Web Services)</li>
+                        <li>Centralized monitoring for all SAP landscapes</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Tab 3: Customer Stories -->
+    <div id="stories-tab" class="tab-content">
+        <section class="platform-tour">
+            <div class="container">
+                <div class="tour-header">
+                    <h2>Customer Success Stories</h2>
+                    <p>Real testimonials from organizations that transformed their SAP operations</p>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>Coca-Cola (CBC) - Real-Time Data Availability</h3>
+                    <p><strong>Challenge:</strong> Need for real-time awareness of SAP BW data upload issues before users notice problems.</p>
+                    <p><strong>Solution:</strong> Skywind 4C™ implementation for comprehensive BW monitoring with email and SMS alerts.</p>
+                    <p><strong>Results:</strong></p>
+                    <ul>
+                        <li>Real-time notification of failed uploads within minutes</li>
+                        <li>Detection of uploads that didn't start when expected</li>
+                        <li>Identification of old/irrelevant processes consuming resources</li>
+                        <li>Early detection of inactive components before night uploads</li>
+                    </ul>
+                    <div class="modal-quote">
+                        "The integration of the system helped us get the information in real time. We are the first to know about faults or incompleteness of the data uploads before the users, leaving us time to address the problem and improve the customer experience of system stability."
+                        <br><br>— Nili Zinger, BI Director & Meital Hayoun, BW Implementation Lead
+                    </div>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>Maccabi Healthcare - Enterprise-Wide Monitoring</h3>
+                    <p><strong>Challenge:</strong> Managing SAP environment with 14,000+ users across ECC, BW, Portal, GRC, and BO systems.</p>
+                    <p><strong>Solution:</strong> Comprehensive SkyAPS™ platform deployment across all SAP modules.</p>
+                    <p><strong>Results:</strong></p>
+                    <ul>
+                        <li>Dynamic recipient notifications based on event content</li>
+                        <li>Automatic response and repair of system malfunctions</li>
+                        <li>Early detection of upcoming failures</li>
+                        <li>Shortened response times for BASIS and BW teams</li>
+                        <li>24/7 critical process availability ensured</li>
+                    </ul>
+                    <div class="modal-quote">
+                        "Implementation of Skywind 4C™ enabled us to effectively control exceptional activities that are monitored before organizational processes are affected or invalidated."
+                        <br><br>— Ofer Zeinfeld, SAP Operations Manager
+                    </div>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>Financial Institution - Fraud Detection</h3>
+                    <p><strong>Challenge:</strong> Client was confident their strong authorization controls would prevent any incidents.</p>
+                    <p><strong>Discovery:</strong> Skywind identified vendor bank account switched every quarter for 4 days, with payments redirected.</p>
+                    <p><strong>Impact:</strong></p>
+                    <ul>
+                        <li>Two-party collaboration fraud scheme exposed</li>
+                        <li>Multiple quarters of fraudulent payments stopped</li>
+                        <li>150+ additional alerts deployed for comprehensive protection</li>
+                        <li>Real-time monitoring of alternative payee assignments</li>
+                    </ul>
+                    <div class="modal-quote">
+                        "We were certain the pilot wouldn't find anything due to our strong authorization controls. Skywind identified collaboration between two authorized parties covering each other's tracks."
+                    </div>
+                </div>
+
+                <div class="tour-screen">
+                    <h3>Manufacturing Company - Process Optimization</h3>
+                    <p><strong>Challenge:</strong> Production orders not matching customer orders, causing disruptions and delayed deliveries.</p>
+                    <p><strong>Solution:</strong> Real-time comparison between customer orders and production orders.</p>
+                    <p><strong>Results:</strong></p>
+                    <ul>
+                        <li>Continuous operations enabled</li>
+                        <li>Manufacturing disruptions eliminated</li>
+                        <li>Delivery delays prevented</li>
+                        <li>Profit margins protected</li>
+                    </ul>
+                    <div class="modal-quote">
+                        "4C™ real-time comparison between customer orders and production orders eliminates mismatch in time and enables continuous operations."
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CTA Section (Visible on all tabs) -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-header">
+                <h2>Want to See What's in YOUR System?</h2>
+                <p>Three ways to experience Skywind</p>
+            </div>
+
+            <div class="cta-cards">
+                <!-- Card 1: Featured -->
+                <div class="cta-card featured">
+                    <h3>Find YOUR Hidden Costs</h3>
+                    <p class="subtitle">4-week assessment using your real production data</p>
+                    <ul>
+                        <li>Specific fraud patterns in YOUR system</li>
+                        <li>Exact $ amount of waste/risk</li>
+                        <li>Precise ROI calculation</li>
+                        <li>Actual inefficiencies costing you now</li>
+                        <li>100% of assessments discover critical risks</li>
+                    </ul>
+                    <button class="cta-button" onclick="window.location.href='https://skywind.ai/sap-treasure-hunt/'">Start Your Treasure Hunt</button>
+                    <p class="cta-subtext">4 weeks • Read-only • Zero risk</p>
+                </div>
+
+                <!-- Card 2: Demo -->
+                <div class="cta-card">
+                    <h3>Watch Platform in Action</h3>
+                    <p class="subtitle">30-minute walkthrough of detection capabilities</p>
+                    <ul>
+                        <li>Live fraud detection example</li>
+                        <li>Alert → Investigation → Resolution workflow</li>
+                        <li>Dashboard drill-down capabilities</li>
+                        <li>Multi-system monitoring</li>
+                    </ul>
+                    <button class="cta-button" onclick="alert('Calendar booking integration - coming soon')">Book Demo Call</button>
+                    <p class="cta-subtext">30 minutes • No obligation</p>
+                </div>
+
+                <!-- Card 3: Case Studies -->
+                <div class="cta-card">
+                    <h3>Read Detailed Case Studies</h3>
+                    <p class="subtitle">In-depth analysis of similar discoveries</p>
+                    <ul>
+                        <li>Coca-Cola implementation story</li>
+                        <li>Maccabi Healthcare results</li>
+                        <li>Financial services fraud prevention</li>
+                        <li>Manufacturing optimization</li>
+                    </ul>
+                    <button class="cta-button" onclick="alert('PDF download - coming soon')">Download PDF</button>
+                    <p class="cta-subtext">2 minutes • Instant access</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class="trust-section">
+        <div class="container">
+            <h2>Proven Results Across Industries</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Of assessments discover critical risks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">$750K+</div>
+                    <div class="stat-label">Documented value in these examples alone</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">165+</div>
+                    <div class="stat-label">Pre-built controls across 9 categories</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">SAP systems monitored worldwide</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">&times;</button>
+                <div id="modal-badges"></div>
+                <h2 id="modal-title"></h2>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <script>
+        // Case Studies Data
+        const caseStudies = [
+            {
+                id: 1,
+                category: 'fraud',
+                categoryDisplay: 'Business Protection',
+                industry: 'Financial Services • Middle East',
+                headline: 'Vendor bank account switched every quarter for 4 days',
+                impact: 'Fraud scheme exposed, multiple quarters of theft stopped',
+                tags: ['fraud', 'vendor'],
+                details: {
+                    title: 'The Quarterly Bank Account Fraud',
+                    discovery: `A financial institution with strong vendor maintenance authorizations believed their system was impenetrable. Their SAP system had robust controls preventing any single authorized party from making changes to vendor details without approval from another party.
+
+Despite these controls, Skywind discovered a sophisticated fraud scheme: every quarter, for exactly 4 days, a vendor's bank account was systematically changed to an unknown private bank account. Payments were processed during this window, then the account was reverted to its original details.
+
+The pattern repeated quarterly, allowing fraudulent payments to be diverted while leaving minimal forensic traces. The scheme required collaboration between two authorized parties, each covering the other's actions.`,
+                    detection: `Skywind's real-time vendor master data monitoring (transaction FK02) detected the pattern through advanced pattern recognition algorithms. The system identified:
+
+• Recurring 4-day windows of bank account changes
+• Systematic reversion to original account details
+• Correlation with payment run schedules
+• Collaboration patterns between two authorized users
+
+The alert triggered immediately when the pattern was detected, despite both parties having legitimate authorization to make the changes individually.`,
+                    impact: `• Fraud scheme exposed after operating for multiple quarters
+• Two internal parties identified and confessed
+• Prevention of future quarterly fraud cycles
+• Customer implemented 150+ additional alerts
+• Alternative payee detection controls added
+• Real-time monitoring of all vendor master data changes`,
+                    quote: 'We were confident the pilot wouldn\'t find anything due to our strong authorization controls. Skywind identified collaboration between two authorized parties covering each other\'s tracks. Each quarter for 4 days, a bank account of a certain vendor was changed into an unknown bank account. The acting parties were traced and confessed.'
+                }
+            },
+            {
+                id: 2,
+                category: 'revenue',
+                categoryDisplay: 'Business Control',
+                industry: 'Retail • Global',
+                headline: '18 months of deliveries never invoiced',
+                impact: '$100,000+ recovered within days of detection',
+                tags: ['revenue', 'control'],
+                details: {
+                    title: 'The $100K+ Revenue Recovery',
+                    discovery: `A global retail operation was unknowingly losing significant revenue due to a systematic failure in their order-to-cash process. Deliveries were being completed and goods were reaching customers, but corresponding invoices were never generated.
+
+The root cause was missing customer approvals on proof of delivery (POD) documents. Without these approvals, the system couldn't automatically generate invoices, and the manual fallback process was failing to catch these cases.
+
+The issue had been occurring for 18 months before discovery, with hundreds of deliveries affected. Revenue was earned but never collected, creating a significant accounts receivable gap that wasn't visible in standard reports.`,
+                    detection: `Within several days of Skywind 4C™ deployment, AI-powered pattern recognition detected the anomaly:
+
+• Delivery documents without corresponding billing documents
+• POD documents lacking customer approval signatures
+• Growing list of completed deliveries in "pending invoice" status
+• Historical analysis revealing 18-month pattern
+
+The alert compared delivery completion timestamps against invoice generation, identifying systematic gaps that manual reviews had missed.`,
+                    impact: `• $100,000+ in unbilled revenue identified immediately
+• Historical analysis covering 18 months of transactions
+• Automated monitoring established to prevent recurrence
+• Process gap identified and corrected
+• Real-time alerts for future POD approval issues
+• Revenue recognition process strengthened`,
+                    quote: 'Within several days of operation, several cases were found from the previous 18 months where invoices were not issued for deliveries that were performed due to missing customer approvals (proof of deliveries). The savings resulting from usage of this alert were above $100K.'
+                }
+            },
+            {
+                id: 3,
+                category: 'fraud',
+                categoryDisplay: 'Business Protection',
+                industry: 'Manufacturing • Europe',
+                headline: 'Sales reps gaming discount system at quarter-end',
+                impact: '$190K suspicious credits identified in minutes',
+                tags: ['fraud', 'control'],
+                details: {
+                    title: 'The $190K Credit Manipulation Scheme',
+                    discovery: `A large European manufacturer with over 5,000 employees worldwide faced a sophisticated sales manipulation scheme. Sales representatives were offering unauthorized high discounts to customers at quarter-end to meet their sales targets.
+
+The scheme worked as follows: Sales reps would negotiate large orders with substantial discounts just before quarter close. After the quarter ended and commissions were paid, customers would cancel the orders and return the goods. However, the new discount levels remained in the system, allowing future purchases at the fraudulent discount rates.
+
+This pattern was impacting quarterly and annual financial reporting accuracy, as sales figures were artificially inflated during closing periods, only to be reversed through credits and returns in the following quarter. The damage was severe, affecting profitability calculations and bonus structures.`,
+                    detection: `Skywind 4C™ deployed a two-alert crosscheck system that identified the pattern within minutes:
+
+**Alert 1:** Discount Threshold Monitoring
+• Flagged discounts exceeding authorized levels
+• Tracked discount approvals and authorization chains
+• Identified patterns of quarter-end discount spikes
+
+**Alert 2:** Credit/Return Pattern Analysis
+• Monitored customer credits and returns
+• Correlated returns with previous high-discount orders
+• Identified systematic post-quarter cancellations
+
+The cross-correlation between these alerts revealed $190,000 in suspicious credits immediately.`,
+                    impact: `• $190,000 in suspicious credits identified within minutes of deployment
+• Systematic fraud pattern exposed across multiple quarters
+• Sales commission calculation accuracy restored
+• Quarterly and annual report integrity protected
+• Tens of thousands of USD in future fraud prevented annually
+• Policy compliance mechanisms strengthened
+• Real-time monitoring of discount approvals established`,
+                    quote: 'Alerts identified certain sales people used to offer high discounts to some customers in order to meet their targets, and after quarter end customers would cancel the order and keep the new discount level in the system. The damage to the company was severe, impacting the profitability and accuracy of quarterly & annual reports. The alerts prevented fiscal loss in excess of tens of thousands of USD annually.'
+                }
+            },
+            {
+                id: 4,
+                category: 'fraud',
+                categoryDisplay: 'Business Protection',
+                industry: 'Manufacturing • Global',
+                headline: 'Container shipping payments redirected to employee account',
+                impact: 'Hundreds of thousands stolen over 2 years, now prevented',
+                tags: ['fraud', 'vendor'],
+                details: {
+                    title: 'The Payment File Hijacking',
+                    discovery: `A multinational manufacturing company using sea transportation for logistics was sending thousands of containers monthly. The payment process involved creating bank payment order files and placing them in a secured folder for transfer to the bank's payment system.
+
+The vessel company (forwarder) complained about overdue/missing payments. Internal SAP checks showed nothing wrong—payments appeared timely and correctly processed. After months of investigation involving multiple staff and considerable effort, the manufacturer discovered the payment files were being altered.
+
+An employee with file access was changing bank requisites inside the files, redirecting payments to his own account. The entire discovery process took about 2 years and cost hundreds of thousands of dollars in stolen payments, investigation costs, and relationship damage with vendors.`,
+                    detection: `Skywind created a comprehensive file integrity validation system with three simultaneous checks:
+
+**Layer 1: File Structure Validation**
+• Recurrent checks of file size and structure
+• Detection of unauthorized modifications
+• Validation against expected file formats
+
+**Layer 2: File Access Monitoring**
+• Detection of files being opened/locked during transfer
+• Identification of unauthorized file access
+• Monitoring of file modification timestamps
+
+**Layer 3: Content Verification**
+• Parsing file contents and comparing against SAP payment run data
+• Bank requisite validation
+• Real-time comparison before bank transmission
+
+These three layers created a bulletproof defense mechanism ensuring files remain intact during creation and transfer processes.`,
+                    impact: `• Hundreds of thousands of dollars in stolen payments identified
+• 2-year fraud scheme exposed
+• Three-layer file integrity protection implemented
+• Real-time validation before bank transmission
+• File tampering now impossible
+• Vendor relationships restored
+• Investigation costs eliminated through automated monitoring`,
+                    quote: 'The discovery took about 2 years and cost hundreds of thousands of dollars. The manufacturer requested from Skywind to create a preventive alerting mechanism, allowing to compare bank transfer files against the payment run results in the SAP system. The comparison has become an integral part of the security procedure, before the files are transferred to the bank for actual payment.'
+                }
+            },
+            {
+                id: 5,
+                category: 'efficiency',
+                categoryDisplay: 'Resource Optimization',
+                industry: 'Retail • 280 Branches',
+                headline: '7.5% of all printing wasted daily across 280 stores',
+                impact: '$105K annual waste eliminated, revenue collection improved',
+                tags: ['efficiency', 'optimization'],
+                details: {
+                    title: 'The $105K Printing Waste',
+                    discovery: `A leading supermarket chain with 280 branches had no visibility into their massive printing operations. Initial analysis revealed shocking statistics:
+
+**Daily Printing Volume:**
+• 37,430 pages printed daily
+• 2,731 document copies created
+• 7.5% of all pages printed were completely wasted
+• 2,807 pages per day producing zero business value
+
+**Root Causes:**
+• Failed prints due to printer errors
+• Stuck print jobs never completed
+• Consistently failing printers not identified
+• Users printing excessive copies
+• Critical documents failing to print without notification
+
+The waste was systematic, occurring daily across all 280 locations. Nobody had visibility into the problem because SAP showed prints as "sent" even when printers were offline or out of paper.`,
+                    detection: `Skywind 4C™ deployed comprehensive printing analysis with multiple detection mechanisms:
+
+• Failed and stuck print detection
+• Consistently failing printer identification
+• Critical document print failure alerts
+• User printing behavior analysis (pages/copies)
+• Top 20 heavy printing users identified (0.06% generating 26% of volume)
+
+Most critically, the system discovered quarterly invoices marked as "sent" in SAP but never actually printed because printers were out of paper—significantly impacting revenue collection.`,
+                    impact: `**Annual Cost Savings:**
+• Wasted cartridges: $99,645 annually
+• Wasted paper: $5,475 annually
+• Total: $105,120 in direct printing waste eliminated
+
+**Additional Business Impact:**
+• Quarterly invoices marked "sent" but never printed discovered
+• Revenue collection significantly improved
+• 3,200 users now monitored
+• Critical document delivery ensured
+• Printer failure patterns identified
+• Budget allocation optimized`,
+                    quote: 'Saved over $110,000 in printing costs for 3,200 users. Identified unsent quarterly invoices that were marked as sent in SAP but were never sent because the printer was out of paper—this significantly increased revenue collection.'
+                }
+            },
+            {
+                id: 6,
+                category: 'fraud',
+                categoryDisplay: 'Business Protection',
+                industry: 'Manufacturing • 5,000+ Employees',
+                headline: 'Unauthorized discounts to hit targets, orders canceled post-quarter',
+                impact: 'Tens of thousands USD prevented annually',
+                tags: ['fraud', 'control'],
+                details: {
+                    title: 'The Discount Fraud Scheme',
+                    discovery: `A large manufacturer with over 5,000 employees worldwide discovered a systematic discount abuse pattern. Sales representatives were manipulating the discount system to achieve sales targets through a sophisticated scheme:
+
+**The Fraud Mechanism:**
+1. Sales reps offered unauthorized high discounts to customers before quarter close
+2. Large orders were placed, boosting sales figures
+3. Sales targets met, commissions calculated and paid
+4. After quarter-end, customers canceled orders
+5. Goods returned, credits issued
+6. Critically: Discount levels remained in the customer master data
+7. Customers retained favorable pricing for future orders
+
+This created a triple impact: artificial inflation of quarterly results, commission payments on sales that would be reversed, and permanent discount erosion for future legitimate sales.`,
+                    detection: `Skywind 4C™ implemented a sophisticated two-alert crosscheck system:
+
+**Alert System 1: Discount Threshold Monitoring**
+• Real-time tracking of discounts above authorized levels
+• Quarter-end discount spike detection
+• Approval chain validation
+• Comparison against customer pricing agreements
+
+**Alert System 2: Credit/Return Correlation**
+• Monitoring of customer credits and returns
+• Post-quarter cancellation pattern detection
+• Correlation with previous high-discount transactions
+• Systematic behavior identification
+
+The cross-reference between these systems revealed the pattern that manual reviews had completely missed.`,
+                    impact: `• Systematic fraud pattern exposed across multiple sales representatives
+• Tens of thousands of USD in annual losses prevented
+• Commission calculation integrity restored
+• Quarterly sales figure accuracy ensured
+• Customer pricing agreements protected
+• Policy enforcement automated
+• Future discount abuse prevented through real-time monitoring
+• Sales process credibility restored`,
+                    quote: 'Certain sales people used to offer high discounts to some customers in order to meet their targets, and after quarter-end customers would cancel the order but keep the new discount level in the system. The alerts put in place enabled to make sure that policies were not breached and prevented fiscal loss in excess of tens of thousands of USD annually.'
+                }
+            },
+            {
+                id: 7,
+                category: 'compliance',
+                categoryDisplay: 'Risk Management',
+                industry: 'Oil & Gas • Asia',
+                headline: 'Hourly fume suction process at risk 24/7',
+                impact: 'Tens of thousands in exponential fines prevented',
+                tags: ['compliance', 'infrastructure'],
+                details: {
+                    title: 'The Environmental Compliance Save',
+                    discovery: `A leading oil & petroleum refinery in Asia faced a critical environmental and financial risk. By law, dangerous fume suction must be performed every 60 minutes, 24 hours a day, 7 days a week. Failure to execute this process has severe consequences:
+
+**The Stakes:**
+• Environmental damage to local communities
+• Exponentially increasing government fines per missed cycle
+• Potential facility shutdown
+• Irreparable public image damage
+• Worker safety hazards
+
+The challenge was validating that the suction event actually occurred every hour. Traditional monitoring couldn't confirm the physical process—only that the system said it should happen. With 180+ critical processes monitored, this single environmental control was among the highest risk.`,
+                    detection: `Skywind's team identified a creative monitoring solution leveraging existing SAP infrastructure:
+
+**The Detection Method:**
+The fuming suction system creates a specific file in a designated directory upon each cycle completion. Skywind deployed an out-of-the-box alert with sophisticated monitoring:
+
+• File creation validation every 60 minutes
+• Timestamp verification (last modified time)
+• Immediate alarm if file not updated within interval
+• Email and SMS alerts to responsible parties
+• 24/7 automated monitoring without manual intervention
+
+If the file timestamp doesn't change within the hourly window, indicating the suction process hasn't occurred, alerts are sent immediately to the appropriate team members.`,
+                    impact: `• Zero environmental incidents since deployment
+• Tens of thousands of dollars in fines already prevented
+• 100% compliance with regulatory requirements
+• Public image and reputation protected
+• Part of 180+ critical infrastructure processes monitored
+• Proactive vs. reactive environmental protection
+• Complete audit trail for regulatory reporting
+• Peace of mind for facility management`,
+                    quote: 'The savings are very substantial and already saved the customer tens of thousands of dollars. Beyond the financial impact, it protects our environmental responsibility and public image. 4C™ is being used to monitor this process by checking every hour that a specific file in an SAP managed file directory is updated.'
+                }
+            },
+            {
+                id: 8,
+                category: 'infrastructure',
+                categoryDisplay: 'Technical Control',
+                industry: 'Financial Services • International',
+                headline: 'Currency exchange failed for days, major disruption',
+                impact: 'Real-time alerts prevent similar scenarios, large recovery costs avoided',
+                tags: ['infrastructure', 'performance'],
+                details: {
+                    title: 'The Currency Exchange Crisis',
+                    discovery: `A major financial institution dealing with many international vendors and customers experienced a critical system failure that went undetected for several days. The currency exchange rate update process—fundamental to accurate international transaction processing—simply stopped running.
+
+**The Business Impact:**
+• All international transactions processed at incorrect rates
+• Financial documents generated with wrong pricing
+• Major disruption to international business operations
+• Expensive recovery process required
+• Reprocessing thousands of transactions
+• Vendor and customer relationship damage
+• Potential regulatory compliance issues
+
+The failure was particularly insidious because it was a "silent" failure—the process didn't error out or alert anyone. It simply didn't execute, and nobody noticed until the financial impact became severe. The bank uses over 165 alerts now, but at the time, this critical process had no monitoring.`,
+                    detection: `Skywind 4C™ implemented a sophisticated two-layer event monitoring system:
+
+**Layer 1: Event Absence Detection**
+• Monitors if the currency update process starts on time
+• Detects if the process doesn't start at all
+• Scheduled execution validation
+• Time window compliance checking
+
+**Layer 2: Event Presence Monitoring**
+• Alerts on successful process execution
+• Alerts on failed process execution
+• Completion validation
+• Result verification
+
+This dual-layer approach catches both "didn't run" and "ran but failed" scenarios—ensuring complete visibility into critical process execution.`,
+                    impact: `• Real-time alerts eliminate similar failure scenarios
+• 165+ alerts deployed across entire business operation
+• Expensive resources time freed from manual monitoring
+• Organization credibility with international partners maintained
+• Large recovery costs prevented through proactive detection
+• Regulatory compliance ensured
+• Financial reporting accuracy protected
+• Manual monitoring burden eliminated`,
+                    quote: 'The currency exchange update was not performed for several days, which caused major disruption to the business and was expensive to recover. The customer is now getting immediate alerts in real time and eliminated such and many other scenarios from happening. Skywind\'s alerts freed many expensive resources\' time and increased organization\'s credibility in addition to saving large costs from such challenges.'
+                }
+            },
+            {
+                id: 9,
+                category: 'control',
+                categoryDisplay: 'Business Control',
+                industry: 'Manufacturing • Custom Orders',
+                headline: 'Customer orders vs. production orders mismatches',
+                impact: 'Continuous operations enabled, delivery delays eliminated',
+                tags: ['control', 'efficiency'],
+                details: {
+                    title: 'The Production Mismatch Solution',
+                    discovery: `A custom manufacturing operation faced a fundamental challenge in their made-to-order business model. Each customer order required a precisely matching production order to be created. When mismatches occurred between what customers ordered and what production planned to manufacture, the consequences cascaded through the entire operation:
+
+**Business Impact of Mismatches:**
+• Manufacturing disruptions and production line stoppages
+• Delayed deliveries missing customer commitments
+• Wrong materials pulled for production
+• Wasted labor on incorrect configurations
+• Customer dissatisfaction and relationship damage
+• Emergency rushes to correct production
+• Profit margin erosion from inefficiencies
+
+In a custom manufacturing environment, these mismatches meant producing the wrong items entirely—not just quantity variances, but fundamentally incorrect product configurations. The manual reconciliation process was too slow, often catching discrepancies only after production had already begun.`,
+                    detection: `Skywind 4C™ implemented real-time order comparison and validation:
+
+**Real-Time Monitoring:**
+• Automated comparison between customer orders (sales documents) and production orders
+• Line-item level validation of specifications
+• Quantity, configuration, and material matching
+• Immediate alert on any discrepancy detection
+
+**Proactive Prevention:**
+• Catches mismatches before production starts
+• Validates order conversion accuracy
+• Monitors order modification impacts
+• Ensures customer specifications flow correctly to manufacturing
+
+The system performs these comparisons continuously, eliminating the gap between order entry and production validation that previously caused disruptions.`,
+                    impact: `• Continuous manufacturing operations without disruption
+• Delivery delays completely eliminated
+• Customer commitment reliability restored
+• Profit margins protected through efficiency
+• Production line stoppages prevented
+• Emergency correction costs eliminated
+• Customer satisfaction improved
+• Manual reconciliation burden removed
+• Real-time visibility into order flow`,
+                    quote: 'Customer manufactures per customized order. Mismatch between customer orders and production orders caused manufacturing disruptions and delayed deliveries as well as impact on profit. Usage of 4C™ to perform real-time comparison between customer orders and production orders eliminates mismatch in time and enables continuous operations.'
+                }
+            },
+            {
+                id: 10,
+                category: 'efficiency',
+                categoryDisplay: 'Operational Efficiency',
+                industry: 'Healthcare • Thousands of Employees',
+                headline: 'Basis team spending hours on manual monitoring',
+                impact: '$120K annual value from time savings (1,200 hours/year)',
+                tags: ['efficiency', 'optimization', 'infrastructure'],
+                details: {
+                    title: 'The $120K Basis Efficiency Gain',
+                    discovery: `A large healthcare provider with thousands of employees was experiencing a common but costly problem: their 5-member SAP Basis team was spending enormous amounts of time on manual system monitoring and reactive firefighting.
+
+**The Manual Monitoring Burden:**
+• Daily checks of system logs and alerts
+• Manual review of background job status
+• Reactive responses to user-reported issues
+• Time-consuming investigation of system anomalies
+• Constant context switching between monitoring tasks
+• Weekend and after-hours manual checks
+• No proactive identification of emerging issues
+
+The team was highly skilled but trapped in repetitive monitoring tasks that consumed at least one hour per team member per day. This represented not just financial cost, but also opportunity cost—skilled Basis professionals were doing work that could be automated, preventing them from strategic initiatives.
+
+Importantly, this was just ONE area of monitoring. The organization had multiple SAP modules (ECC, BW, Portal, GRC) that each required similar levels of manual oversight.`,
+                    detection: `Skywind SkyAPS™ deployed comprehensive automated Basis monitoring:
+
+**Automated Monitoring Capabilities:**
+• System performance tracking (ST22, SM50, SM66)
+• Background job execution monitoring and analysis
+• Integration point stability alerts
+• Database growth control
+• Real-time technical issue detection
+• User activity monitoring
+• System log analysis (SM20, SM21)
+• Resource utilization tracking
+
+**Proactive Alerting:**
+• Issues detected before they impact users
+• Anomaly identification through pattern recognition
+• Threshold breach notifications
+• Predictive failure indicators
+
+The platform eliminated manual checking entirely, with automated monitoring running 24/7 and alerting only when human intervention was actually needed.`,
+                    impact: `**Quantified Time Savings:**
+• 1 hour saved per team member daily
+• 5 team members × 1 hour × 240 work days = 1,200 hours annually
+• At conservative $100/hour rate = $120,000 annual value
+• This represents only ONE monitored area out of several modules
+
+**Additional Benefits:**
+• Proactive issue detection vs. reactive firefighting
+• Reduced system downtime through early warning
+• Improved service quality to end users
+• Team freed for strategic initiatives
+• 24/7 monitoring without overtime costs
+• Reduced weekend/after-hours manual checks
+• Better work-life balance for Basis team`,
+                    quote: 'Using the Basis alerts, the customer reports that there is at least a one hour saving for each team member daily—5 members. 1,200 hours annually that are worth at least $120K per year, and this is only for one area that is being monitored out of several modules which each have additional savings.'
+                }
+            }
+        ];
+
+        // DOM Elements
+        const cardsGrid = document.getElementById('cards-grid');
+        const noResults = document.getElementById('no-results');
+        const resultsCount = document.getElementById('results-count');
+        const modal = document.getElementById('modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalBody = document.getElementById('modal-body');
+        const modalBadges = document.getElementById('modal-badges');
+        const clearFiltersBtn = document.querySelector('.clear-filters');
+        const filterCheckboxes = document.querySelectorAll('.filter-checkbox input[type="checkbox"]');
+
+        // Tab Functionality
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.dataset.tab;
+                
+                // Update active tab
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Update active content
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById(`${targetTab}-tab`).classList.add('active');
+            });
+        });
+
+        // Render Cards
+        function renderCards(studies = caseStudies) {
+            cardsGrid.innerHTML = '';
+            
+            if (studies.length === 0) {
+                noResults.style.display = 'block';
+                cardsGrid.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                cardsGrid.style.display = 'grid';
+                
+                studies.forEach(study => {
+                    const card = document.createElement('div');
+                    card.className = 'case-card';
+                    card.innerHTML = `
+                        <div class="card-header">
+                            <div class="card-badges">
+                                <span class="category-badge ${study.category}">${study.categoryDisplay}</span>
+                                <span class="industry-badge">${study.industry}</span>
+                            </div>
+                            <h3 class="card-headline">${study.headline}</h3>
+                            <p class="card-impact"><strong>Impact:</strong> ${study.impact}</p>
+                            <button class="card-cta" data-id="${study.id}">See Full Details</button>
+                        </div>
+                    `;
+                    
+                    card.querySelector('.card-cta').addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        showModal(study.id);
+                    });
+                    
+                    cardsGrid.appendChild(card);
+                });
+            }
+            
+            resultsCount.textContent = studies.length;
+        }
+
+        // Filter Functionality
+        function filterCards() {
+            const selectedFilters = Array.from(filterCheckboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.value);
+            
+            if (selectedFilters.length === 0) {
+                renderCards(caseStudies);
+                return;
+            }
+            
+            const filtered = caseStudies.filter(study => {
+                return selectedFilters.some(filter => study.tags.includes(filter));
+            });
+            
+            renderCards(filtered);
+        }
+
+        filterCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', filterCards);
+        });
+
+        clearFiltersBtn.addEventListener('click', () => {
+            filterCheckboxes.forEach(cb => cb.checked = false);
+            renderCards(caseStudies);
+        });
+
+        // Modal Functionality
+        function showModal(studyId) {
+            const study = caseStudies.find(s => s.id === studyId);
+            if (!study) return;
+            
+            modalBadges.innerHTML = `
+                <div class="card-badges">
+                    <span class="category-badge ${study.category}">${study.categoryDisplay}</span>
+                    <span class="industry-badge">${study.industry}</span>
+                </div>
+            `;
+            
+            modalTitle.textContent = study.details.title;
+            
+            modalBody.innerHTML = `
+                <div class="modal-section">
+                    <h3>The Discovery</h3>
+                    <p>${study.details.discovery.replace(/\n\n/g, '</p><p>')}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>How Skywind Found It</h3>
+                    <p>${study.details.detection.replace(/\n\n/g, '</p><p>')}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>The Impact</h3>
+                    <p>${study.details.impact.replace(/\n\n/g, '</p><p>')}</p>
+                </div>
+                
+                <div class="modal-quote">
+                    ${study.details.quote}
+                </div>
+                
+                <button class="modal-cta" onclick="window.location.href='https://skywind.ai/sap-treasure-hunt/'">
+                    Find Similar Issues in My SAP
+                </button>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.querySelector('.modal-close').addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Initialize
+        renderCards();
+    </script>
+</body>
+</html>
+

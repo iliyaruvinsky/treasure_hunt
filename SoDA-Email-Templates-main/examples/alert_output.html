@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0ede5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .header img {
+            max-height: 40px; /* Decreased logo size */
+        }
+        .header h1 {
+            font-size: 16px; /* Decreased font size for main title */
+            color: #0B4568;
+            margin: 0;
+        }
+        .header .count {
+            font-size: 12px; /* Decreased font size for counter */
+            color: #555;
+        }
+        h2 {
+            color: #0B4568;
+            font-size: 14px; /* Decreased font size for section titles */
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        p {
+            font-size: 12px; /* Decreased font size for paragraph text */
+            line-height: 1.6;
+        }
+        .table-container {
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px; /* Decreased padding */
+            text-align: left;
+            font-size: 12px; /* Decreased font size for table cells */
+        }
+        th {
+            background-color: #f0ede5;
+            color: #0B4568;
+            font-weight: bold;
+            font-size: 12px; /* Decreased font size for table headers */
+        }
+        .text-name-value b {
+            color: #0B4568;
+        }
+        .footer {
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+            font-size: 10px; /* Decreased font size for footer */
+            color: #777;
+            text-align: center;
+        }
+        .footer a {
+            color: #0B4568;
+            text-decoration: none;
+        }
+        .timestamp {
+            display: block;
+            margin-top: 5px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>The following workflow is awaiting your response</h1>
+            <img src="@CLIENT_LOGO_PATH@" alt="Your company logo">
+        </div>
+
+        <hr>
+
+        <p><strong>Introduction</strong></p>
+        <p>Below, you will find information about a workflow in which you were assigned as a reviewer. Please use the link at the end of this email to log in to the relevant app and respond as soon as possible. If you have any questions or believe there has been a mistake in your assignment, please contact the workflow's initiator mentioned below.</p>
+
+        <h2>Workflow’s Details</h2>
+
+        <div class="table-container">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>General</th>
+                        <th>Basic settings</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Source system" class="text-name-value"><b>Source system:</b></span>
+                            <span class="H2AA">QA</span>
+                        </td>
+                        <td>
+                            <span title="ID" class="text-name-value"><b>ID:</b></span>
+                            <span class="color-id size-rem85">1</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Workflow's Status" class="text-name-value"><b>Workflow's Status:</b></span>
+                            <span class="H2AA">Initial</span>
+                        </td>
+                        <td>
+                            <span title="Workflow's Type" class="text-name-value"><b>Workflow's Type:</b></span>
+                            <span class="H2AA">Access Certification Review</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Created on" class="text-name-value"><b>Created on:</b></span>
+                            <span class="H2AA">15/08/2024 at 15:13:23 by BAR.M@SKYWIND.COM</span>
+                        </td>
+                        <td>
+                            <span title="Workflow Flow Type" class="text-name-value"><b>Workflow Flow Type:</b></span>
+                            <span class="H2AA">Linear</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Updated on" class="text-name-value"><b>Updated on:</b></span>
+                            <span class="H2AA">15/08/2024 at 15:13:23 by BAR.M@SKYWIND.COM</span>
+                        </td>
+                        <td>
+                            <span title="Workflow Report Category" class="text-name-value"><b>Workflow Report Category:</b></span>
+                            <span class="H2AA">SoD Rules</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span title="Workflow Due Date" class="text-name-value"><b>Workflow Due Date:</b></span>
+                            <span class="H2AA">Not set</span>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Workflow’s Employees <span class="count"># of employees: {0}</span></h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee’s ID</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Department</th>
+                        <th>Job Title</th>
+                        <th>Hire Date</th>
+                        <th>Manager</th>
+                        <th>Email</th>
+                        <th>SAP User</th>
+                        <th>Last Review Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Jane</td>
+                        <td>Doe</td>
+                        <td>IT</td>
+                        <td>Software Engineer</td>
+                        <td>01/01/2020</td>
+                        <td>Mark Smith</td>
+                        <td>jane.doe@example.com</td>
+                        <td>jane.doe</td>
+                        <td>15/07/2024</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>John</td>
+                        <td>Smith</td>
+                        <td>Operations</td>
+                        <td>Project Manager</td>
+                        <td>15/03/2019</td>
+                        <td>Lisa Brown</td>
+                        <td>john.smith@example.com</td>
+                        <td>john.smith</td>
+                        <td>10/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Emily</td>
+                        <td>Johnson</td>
+                        <td>HR</td>
+                        <td>HR Specialist</td>
+                        <td>20/06/2021</td>
+                        <td>Robert Green</td>
+                        <td>emily.johnson@example.com</td>
+                        <td>emily.johnson</td>
+                        <td>12/06/2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Workflow’s Reviewers <span class="count"># of reviewers: {0}</span></h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Employee’s ID</th>
+                        <th>First name</th>
+                        <th>Last name</th>
+                        <th>Department</th>
+                        <th>Job Title</th>
+                        <th>Hire Date</th>
+                        <th>Manager</th>
+                        <th>Email</th>
+                        <th>SAP User</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>001</td>
+                        <td>Jane</td>
+                        <td>Doe</td>
+                        <td>IT</td>
+                        <td>Software Engineer</td>
+                        <td>01/01/2020</td>
+                        <td>Mark Smith</td>
+                        <td>jane.doe@example.com</td>
+                        <td>jane.doe</td>
+                        <td>Initial</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>002</td>
+                        <td>John</td>
+                        <td>Smith</td>
+                        <td>Operations</td>
+                        <td>Project Manager</td>
+                        <td>15/03/2019</td>
+                        <td>Lisa Brown</td>
+                        <td>john.smith@example.com</td>
+                        <td>john.smith</td>
+                        <td>Initial</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>003</td>
+                        <td>Emily</td>
+                        <td>Johnson</td>
+                        <td>HR</td>
+                        <td>HR Specialist</td>
+                        <td>20/06/2021</td>
+                        <td>Robert Green</td>
+                        <td>emily.johnson@example.com</td>
+                        <td>emily.johnson</td>
+                        <td>Initial</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Workflow’s Reviews <span class="count"># of reviews: {0}</span></h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Reviewed User ID</th>
+                        <th>Reviewed User Name</th>
+                        <th>SAP User</th>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Created at</th>
+                        <th>Updated at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Jane Doe</td>
+                        <td>jane.doe</td>
+                        <td>REV-001</td>
+                        <td>Annual Review</td>
+                        <td>Completed</td>
+                        <td>01/01/2024</td>
+                        <td>15/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>John Smith</td>
+                        <td>john.smith</td>
+                        <td>REV-002</td>
+                        <td>Quarterly Review</td>
+                        <td>Pending</td>
+                        <td>10/04/2024</td>
+                        <td>15/08/2024</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Emily Johnson</td>
+                        <td>emily.johnson</td>
+                        <td>REV-003</td>
+                        <td>Mid-Year Review</td>
+                        <td>In Progress</td>
+                        <td>15/06/2024</td>
+                        <td>15/08/2024</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2>Required Steps</h2>
+        <ul>
+            <li>Log in to the Reviewer App using the following link: <a href="https://172.30.30.161/sap/bc/ui5_ui5/sap/zuar/index.html#ReviewsList">Skywind Reviewer App</a></li>
+            <li>Ensure you have a valid Active Directory User account to log in to the app.</li>
+            <li>Review all the rows in the provided review and respond accordingly.</li>
+            <li>If you are the final reviewer or if the workflow was set up in parallel, you will have the authorization to close the review once completed.</li>
+        </ul>
+
+        <div class="footer">
+            <p><a href="https://skywind.com">Skywind Software Group</a></p>
+            <p>&copy; 2018 Skywind Software Group. All rights reserved.</p>
+            <p class="timestamp">Generated on: {timestamp}</p>
+        </div>
+    </div>
+</body>
+</html>

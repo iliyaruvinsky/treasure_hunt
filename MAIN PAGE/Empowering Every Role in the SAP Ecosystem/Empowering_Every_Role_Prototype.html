@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering Every Role in the SAP Ecosystem - Skywind</title>
+    <meta name="description" content="Skywind empowers every role in the SAP ecosystem with intelligent automation, security, and compliance solutions. Explore solutions for business users, technical experts, security managers, and access specialists.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #4A90E2;
+            --tech-blue: #5D9CEC;
+            --security-red: #C8102E;
+            --auth-orange: #E67E22;
+            --dark-gray: #333;
+            --medium-gray: #666;
+            --light-gray: #f5f5f5;
+            --white: #ffffff;
+            --text-primary: #2c3e50;
+            --text-secondary: #7f8c8d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-blue);
+        }
+
+        .header-contact {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .header-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        /* Main Title Section */
+        .main-title-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .main-title-section h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .main-title-section p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Blocks Grid */
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        /* Individual Block Card */
+        .role-block {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .role-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+
+        .role-block.business { border-top: 5px solid var(--primary-blue); }
+        .role-block.technical { border-top: 5px solid var(--tech-blue); }
+        .role-block.security { border-top: 5px solid var(--security-red); }
+        .role-block.authorization { border-top: 5px solid var(--auth-orange); }
+
+        .block-image {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .block-image.business {
+            background: linear-gradient(rgba(74, 144, 226, 0.7), rgba(74, 144, 226, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40">💼</text></svg>');
+            background-size: cover, 100px;
+            background-position: center;
+        }
+
+        .block-image.technical {
+            background: linear-gradient(rgba(93, 156, 236, 0.7), rgba(93, 156, 236, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40">💻</text></svg>');
+            background-size: cover, 100px;
+            background-position: center;
+        }
+
+        .block-image.security {
+            background: linear-gradient(rgba(200, 16, 46, 0.7), rgba(200, 16, 46, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40">🛡️</text></svg>');
+            background-size: cover, 100px;
+            background-position: center;
+        }
+
+        .block-image.authorization {
+            background: linear-gradient(rgba(230, 126, 34, 0.7), rgba(230, 126, 34, 0.7)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="40">🔑</text></svg>');
+            background-size: cover, 100px;
+            background-position: center;
+        }
+
+        .block-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .block-content h2 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .block-content .subheadline {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .block-content .body-copy {
+            font-size: 15px;
+            margin-bottom: 25px;
+            color: var(--medium-gray);
+        }
+
+        .solutions-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .solutions-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 14px;
+        }
+
+        .solutions-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .business .solutions-list li:before { color: var(--primary-blue); }
+        .technical .solutions-list li:before { color: var(--tech-blue); }
+        .security .solutions-list li:before { color: var(--security-red); }
+        .authorization .solutions-list li:before { color: var(--auth-orange); }
+
+        .solutions-list li strong {
+            display: block;
+            color: var(--dark-gray);
+            margin-bottom: 3px;
+        }
+
+        /* Tabs */
+        .tabs-section {
+            margin-top: auto;
+        }
+
+        .tabs-section h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tab-button {
+            padding: 8px 16px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: var(--medium-gray);
+        }
+
+        .tab-button:hover {
+            background: var(--medium-gray);
+            color: white;
+        }
+
+        .tab-button.active {
+            color: white;
+        }
+
+        .business .tab-button.active { background: var(--primary-blue); }
+        .technical .tab-button.active { background: var(--tech-blue); }
+        .security .tab-button.active { background: var(--security-red); }
+        .authorization .tab-button.active { background: var(--auth-orange); }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content h4 {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .tab-content .challenge { color: var(--security-red); font-weight: 600; }
+        .tab-content .solution { color: var(--primary-blue); font-weight: 600; }
+        .tab-content .result { color: #27ae60; font-weight: 600; }
+
+        /* Target Roles Expandable */
+        .roles-section {
+            margin: 20px 0;
+        }
+
+        .roles-toggle {
+            width: 100%;
+            padding: 12px;
+            background: var(--light-gray);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--dark-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .roles-toggle:hover {
+            background: #e8e8e8;
+        }
+
+        .roles-toggle::after {
+            content: "▼";
+            transition: transform 0.3s ease;
+        }
+
+        .roles-toggle.active::after {
+            transform: rotate(180deg);
+        }
+
+        .roles-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .roles-content.active {
+            max-height: 1000px;
+            padding: 15px 0;
+        }
+
+        .roles-list {
+            columns: 2;
+            column-gap: 20px;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .roles-list .role-category {
+            break-inside: avoid;
+            margin-bottom: 15px;
+        }
+
+        .roles-list .role-category strong {
+            display: block;
+            color: var(--dark-gray);
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .roles-list ul {
+            list-style: none;
+            padding-left: 15px;
+        }
+
+        .roles-list li {
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .roles-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--medium-gray);
+        }
+
+        /* CTAs */
+        .block-cta {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            color: white;
+        }
+
+        .business .btn-primary { background: var(--primary-blue); }
+        .technical .btn-primary { background: var(--tech-blue); }
+        .security .btn-primary { background: var(--security-red); }
+        .authorization .btn-primary { background: var(--auth-orange); }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            color: var(--dark-gray);
+            background: transparent;
+            border: 2px solid var(--light-gray);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gray);
+        }
+
+        /* Universal Section */
+        .universal-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .universal-section h2 {
+            font-size: 42px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .universal-section .body-text {
+            font-size: 18px;
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .highlight-box {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            padding: 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight-box h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .highlight-box p {
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto 50px;
+        }
+
+        .benefit-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .benefit-item p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .final-cta {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+
+        .btn-white:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 15px 30px;
+            font-size: 16px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .blocks-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blocks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-title-section h1 {
+                font-size: 32px;
+            }
+
+            .main-title-section p {
+                font-size: 16px;
+            }
+
+            .universal-section h2 {
+                font-size: 32px;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .roles-list {
+                columns: 1;
+            }
+
+            .header-contact {
+                flex-direction: column;
+                gap: 5px;
+                font-size: 12px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">SKYWIND Software Group</div>
+                <div class="header-contact">
+                    <a href="mailto:info@skywind.com">info@skywind.com</a>
+                    <span>|</span>
+                    <a href="https://www.skywind.com">www.skywind.com</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Title Section -->
+    <section class="main-title-section">
+        <div class="container">
+            <h1>Empowering Every Role in the SAP Ecosystem</h1>
+            <p>Skywind's solutions are designed to meet the unique needs of every SAP stakeholder—whether you're a business professional, IT expert, security specialist, auditor, or compliance manager. We empower teams across the ecosystem with tools for efficiency, security, and seamless SAP operation.</p>
+        </div>
+    </section>
+
+    <!-- Blocks Grid -->
+    <div class="container">
+        <div class="blocks-grid">
+            
+            <!-- Block 1: Business Users and Analysts -->
+            <article class="role-block business">
+                <div class="block-image business"></div>
+                <div class="block-content">
+                    <h2>Business Users and Analysts</h2>
+                    <p class="subheadline">Empowering SAP users with actionable insights and automation to detect fraud, manage risks, and enhance operational efficiency.</p>
+                    <p class="body-copy">Transform from reactive problem-solving to proactive process management. Detect issues before they impact your operations or finances.</p>
+                    
+                    <ul class="solutions-list">
+                        <li>
+                            <strong>Business Process Monitoring and Control</strong>
+                            Real-time alerts for operational anomalies across all business functions
+                        </li>
+                        <li>
+                            <strong>Custom Alert Creation Without Coding</strong>
+                            Create tailor-made alerts for your specific business processes
+                        </li>
+                    </ul>
+
+                    <!-- Target Roles -->
+                    <div class="roles-section">
+                        <button class="roles-toggle" onclick="toggleRoles(this)">
+                            Who Benefits?
+                        </button>
+                        <div class="roles-content">
+                            <div class="roles-list">
+                                <div class="role-category">
+                                    <strong>Finance Teams</strong>
+                                    <ul>
+                                        <li>Accounts Payable Manager</li>
+                                        <li>Accounts Receivable Coordinator</li>
+                                        <li>Accounting Manager</li>
+                                        <li>Cost Controller</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Sales & Distribution</strong>
+                                    <ul>
+                                        <li>Sales Account Manager</li>
+                                        <li>Sales Order Clerk</li>
+                                        <li>Billing Specialist</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Procurement</strong>
+                                    <ul>
+                                        <li>Purchasing Manager</li>
+                                        <li>Purchasing Officer</li>
+                                        <li>Contract Administrator</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Operations</strong>
+                                    <ul>
+                                        <li>Logistics Coordinator</li>
+                                        <li>Warehouse Supervisor</li>
+                                        <li>Stock Controller</li>
+                                        <li>Production Planner</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Data Management</strong>
+                                    <ul>
+                                        <li>Master Data Manager</li>
+                                        <li>SAP BI Manager/Expert</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Human Resources</strong>
+                                    <ul>
+                                        <li>HR Clerk</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Cases Tabs -->
+                    <div class="tabs-section">
+                        <h3>Business Case Examples</h3>
+                        <div class="tab-buttons">
+                            <button class="tab-button active" onclick="switchTab(this, 'business-1')">Finance</button>
+                            <button class="tab-button" onclick="switchTab(this, 'business-2')">Sales</button>
+                            <button class="tab-button" onclick="switchTab(this, 'business-3')">Procurement</button>
+                            <button class="tab-button" onclick="switchTab(this, 'business-4')">Operations</button>
+                            <button class="tab-button" onclick="switchTab(this, 'business-5')">Data Mgmt</button>
+                        </div>
+                        
+                        <div id="business-1" class="tab-content active">
+                            <h4>💰 Accounts Payable Manager</h4>
+                            <p><span class="challenge">Challenge:</span> Risk of duplicate payments and vendor fraud</p>
+                            <p><span class="solution">Solution:</span> Real-time alerts for duplicate invoices, suspicious payments, invoices above threshold without approval, and vendor bank account changes</p>
+                            <p><span class="result">Result:</span> Prevents financial losses, ensures compliance with payment policies, reduces audit findings</p>
+                        </div>
+                        
+                        <div id="business-2" class="tab-content">
+                            <h4>📊 Sales Account Manager</h4>
+                            <p><span class="challenge">Challenge:</span> Revenue leakage through pricing errors and unauthorized discounts</p>
+                            <p><span class="solution">Solution:</span> Instant notifications for unusual discount patterns, pricing below thresholds, credit limit violations, and backdated sales documents</p>
+                            <p><span class="result">Result:</span> Protects revenue, maintains pricing integrity, prevents unauthorized concessions</p>
+                        </div>
+                        
+                        <div id="business-3" class="tab-content">
+                            <h4>🛒 Purchasing Manager</h4>
+                            <p><span class="challenge">Challenge:</span> Procurement fraud and contract compliance violations</p>
+                            <p><span class="solution">Solution:</span> Automated alerts for split orders, contract expirations, suppliers without competitive bidding, and maverick buying</p>
+                            <p><span class="result">Result:</span> Ensures procurement policy compliance, reduces fraud risk, optimizes supplier relationships</p>
+                        </div>
+                        
+                        <div id="business-4" class="tab-content">
+                            <h4>📦 Logistics Coordinator</h4>
+                            <p><span class="challenge">Challenge:</span> Inventory discrepancies and shipping errors</p>
+                            <p><span class="solution">Solution:</span> Proactive monitoring of goods receipts without POs, delivery delays, unusual stock movements, and location mismatches</p>
+                            <p><span class="result">Result:</span> Improves inventory accuracy, enhances customer satisfaction, reduces operational costs</p>
+                        </div>
+                        
+                        <div id="business-5" class="tab-content">
+                            <h4>🗄️ Master Data Manager</h4>
+                            <p><span class="challenge">Challenge:</span> Data quality issues affecting business processes</p>
+                            <p><span class="solution">Solution:</span> Continuous surveillance for duplicate master records, critical field changes, incomplete data, and mass changes to sensitive fields</p>
+                            <p><span class="result">Result:</span> Maintains data integrity, prevents process disruptions, ensures data governance</p>
+                        </div>
+                    </div>
+
+                    <div class="block-cta">
+                        <a href="#" class="btn btn-primary">Explore Business Solutions</a>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Block 2: SAP Technical Experts and Developers -->
+            <article class="role-block technical">
+                <div class="block-image technical"></div>
+                <div class="block-content">
+                    <h2>SAP Technical Experts and Developers</h2>
+                    <p class="subheadline">Optimizing SAP system performance with tailored solutions for module consultants, Basis administrators, and developers.</p>
+                    <p class="body-copy">Shift from firefighting to strategic optimization. Maintain system health and performance with confidence through intelligent automation.</p>
+                    
+                    <ul class="solutions-list">
+                        <li>
+                            <strong>Automated Job Monitoring and Batch Control</strong>
+                            24/7 oversight of critical background processes
+                        </li>
+                        <li>
+                            <strong>Technical Infrastructure Monitoring</strong>
+                            Real-time alerts for system health and performance issues
+                        </li>
+                        <li>
+                            <strong>System Performance Optimization</strong>
+                            Proactive identification of bottlenecks and resource constraints
+                        </li>
+                        <li>
+                            <strong>Custom Alert Creation Without Coding</strong>
+                            Create technical alerts tailored to your environment
+                        </li>
+                    </ul>
+
+                    <!-- Target Roles -->
+                    <div class="roles-section">
+                        <button class="roles-toggle" onclick="toggleRoles(this)">
+                            Who Benefits?
+                        </button>
+                        <div class="roles-content">
+                            <div class="roles-list">
+                                <div class="role-category">
+                                    <strong>Technical Administration</strong>
+                                    <ul>
+                                        <li>SAP Basis Administrator</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Development Teams</strong>
+                                    <ul>
+                                        <li>SAP Developers (ABAP, Fiori, UI5)</li>
+                                        <li>SAP Solution Architects</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Consulting & Integration</strong>
+                                    <ul>
+                                        <li>Module Consultants (FI/CO, MM, SD)</li>
+                                        <li>Integration Specialists</li>
+                                        <li>Performance Engineers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Cases Tabs -->
+                    <div class="tabs-section">
+                        <h3>Business Case Examples</h3>
+                        <div class="tab-buttons">
+                            <button class="tab-button active" onclick="switchTab(this, 'technical-1')">Basis</button>
+                            <button class="tab-button" onclick="switchTab(this, 'technical-2')">Development</button>
+                            <button class="tab-button" onclick="switchTab(this, 'technical-3')">Consulting</button>
+                            <button class="tab-button" onclick="switchTab(this, 'technical-4')">Integration</button>
+                            <button class="tab-button" onclick="switchTab(this, 'technical-5')">Performance</button>
+                        </div>
+                        
+                        <div id="technical-1" class="tab-content active">
+                            <h4>⚙️ SAP Basis Administrator</h4>
+                            <p><span class="challenge">Challenge:</span> System stability and proactive issue prevention</p>
+                            <p><span class="solution">Solution:</span> 24/7 monitoring of batch jobs, database growth, tablespace levels, system performance (CPU, memory, disk I/O), RFC connections, and update records</p>
+                            <p><span class="result">Result:</span> Minimizes system downtime, enables proactive maintenance, reduces emergency firefighting</p>
+                        </div>
+                        
+                        <div id="technical-2" class="tab-content">
+                            <h4>💻 SAP Developer</h4>
+                            <p><span class="challenge">Challenge:</span> Code quality and production issue detection</p>
+                            <p><span class="solution">Solution:</span> Automated notifications for performance issues, modification adjustments needed, transport failures, unauthorized changes, and resource-intensive jobs</p>
+                            <p><span class="result">Result:</span> Improves code quality, accelerates issue resolution, protects production stability</p>
+                        </div>
+                        
+                        <div id="technical-3" class="tab-content">
+                            <h4>🔧 Module Consultant</h4>
+                            <p><span class="challenge">Challenge:</span> Module-specific configuration and process monitoring</p>
+                            <p><span class="solution">Solution:</span> Specialized alerts for period closing delays, posting errors, inventory discrepancies, pricing issues, and integration failures between modules</p>
+                            <p><span class="result">Result:</span> Ensures module integrity, accelerates issue resolution, maintains business process continuity</p>
+                        </div>
+                        
+                        <div id="technical-4" class="tab-content">
+                            <h4>🔗 Integration Specialist</h4>
+                            <p><span class="challenge">Challenge:</span> Interface reliability and data synchronization</p>
+                            <p><span class="solution">Solution:</span> Real-time monitoring of EDI/IDoc failures, API errors, middleware issues, data mapping problems, and third-party connectivity</p>
+                            <p><span class="result">Result:</span> Ensures seamless data flow, reduces integration downtime, maintains business continuity</p>
+                        </div>
+                        
+                        <div id="technical-5" class="tab-content">
+                            <h4>⚡ Performance Engineer</h4>
+                            <p><span class="challenge">Challenge:</span> Identifying and resolving system bottlenecks</p>
+                            <p><span class="solution">Solution:</span> Proactive detection of long-running transactions, inefficient code, database optimization opportunities, memory leaks, and user experience degradation</p>
+                            <p><span class="result">Result:</span> Optimizes system performance, improves user satisfaction, maximizes hardware utilization</p>
+                        </div>
+                    </div>
+
+                    <div class="block-cta">
+                        <a href="#" class="btn btn-primary">Explore Technical Solutions</a>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Block 3: Security and Compliance Managers -->
+            <article class="role-block security">
+                <div class="block-image security"></div>
+                <div class="block-content">
+                    <h2>Security and Compliance Managers</h2>
+                    <p class="subheadline">Protect SAP environments with advanced threat detection, risk mitigation, and compliance automation. Strengthen defenses against cyber threats.</p>
+                    <p class="body-copy">Move from periodic audits to continuous assurance. Demonstrate compliance and mitigate risks in real-time with intelligent monitoring.</p>
+                    
+                    <ul class="solutions-list">
+                        <li>
+                            <strong>Audit and Compliance Automation</strong>
+                            Continuous monitoring and automated control testing
+                        </li>
+                        <li>
+                            <strong>Fraud Detection and Prevention</strong>
+                            Real-time alerts for suspicious activities and fraud patterns
+                        </li>
+                        <li>
+                            <strong>Cybersecurity Threat Monitoring</strong>
+                            Advanced threat detection and security event correlation
+                        </li>
+                        <li>
+                            <strong>Custom Alert Creation Without Coding</strong>
+                            Define your organization's specific risk indicators
+                        </li>
+                    </ul>
+
+                    <!-- Target Roles -->
+                    <div class="roles-section">
+                        <button class="roles-toggle" onclick="toggleRoles(this)">
+                            Who Benefits?
+                        </button>
+                        <div class="roles-content">
+                            <div class="roles-list">
+                                <div class="role-category">
+                                    <strong>Executive Security Leadership</strong>
+                                    <ul>
+                                        <li>Chief Information Security Officer (CISO)</li>
+                                        <li>Security Managers</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Compliance & Risk</strong>
+                                    <ul>
+                                        <li>Compliance Officers</li>
+                                        <li>Risk Management Directors</li>
+                                        <li>Internal Auditors</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Security Operations</strong>
+                                    <ul>
+                                        <li>IT Security Analysts</li>
+                                        <li>Fraud Investigators</li>
+                                        <li>Data Privacy Officers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Cases Tabs -->
+                    <div class="tabs-section">
+                        <h3>Business Case Examples</h3>
+                        <div class="tab-buttons">
+                            <button class="tab-button active" onclick="switchTab(this, 'security-1')">CISO</button>
+                            <button class="tab-button" onclick="switchTab(this, 'security-2')">Audit</button>
+                            <button class="tab-button" onclick="switchTab(this, 'security-3')">Compliance</button>
+                            <button class="tab-button" onclick="switchTab(this, 'security-4')">Fraud</button>
+                            <button class="tab-button" onclick="switchTab(this, 'security-5')">SecOps</button>
+                        </div>
+                        
+                        <div id="security-1" class="tab-content active">
+                            <h4>🛡️ CISO</h4>
+                            <p><span class="challenge">Challenge:</span> Comprehensive SAP security posture management</p>
+                            <p><span class="solution">Solution:</span> Executive visibility into critical security events, unauthorized access attempts, privileged user activity, security configuration changes, and compliance violations</p>
+                            <p><span class="result">Result:</span> Strategic security oversight, risk-informed decision making, board-level reporting confidence</p>
+                        </div>
+                        
+                        <div id="security-2" class="tab-content">
+                            <h4>📋 Internal Auditor</h4>
+                            <p><span class="challenge">Challenge:</span> Continuous audit readiness and control effectiveness</p>
+                            <p><span class="solution">Solution:</span> Automated monitoring of SoD violations, emergency user access, financial anomalies, master data changes, and system configuration changes</p>
+                            <p><span class="result">Result:</span> Reduces audit preparation time, provides continuous assurance, identifies control gaps proactively</p>
+                        </div>
+                        
+                        <div id="security-3" class="tab-content">
+                            <h4>✅ Compliance Officer</h4>
+                            <p><span class="challenge">Challenge:</span> Multi-framework regulatory compliance</p>
+                            <p><span class="solution">Solution:</span> Comprehensive monitoring of SOX compliance, GDPR data access tracking, industry-specific requirements, policy violations, and audit log integrity</p>
+                            <p><span class="result">Result:</span> Demonstrates regulatory compliance, reduces audit findings, minimizes compliance risks</p>
+                        </div>
+                        
+                        <div id="security-4" class="tab-content">
+                            <h4>🔍 Fraud Investigator</h4>
+                            <p><span class="challenge">Challenge:</span> Detecting and investigating fraudulent activities</p>
+                            <p><span class="solution">Solution:</span> Advanced pattern detection for fraud schemes, employee collusion, vendor fraud, customer fraud, and time-based manipulations</p>
+                            <p><span class="result">Result:</span> Accelerates fraud detection, provides investigation evidence, prevents financial losses</p>
+                        </div>
+                        
+                        <div id="security-5" class="tab-content">
+                            <h4>🚨 IT Security Analyst</h4>
+                            <p><span class="challenge">Challenge:</span> Real-time threat detection and incident response</p>
+                            <p><span class="solution">Solution:</span> Immediate alerts for brute force attacks, privilege escalation, data exfiltration, malicious code execution, suspicious RFC calls, and after-hours access</p>
+                            <p><span class="result">Result:</span> Rapid threat response, reduced dwell time for security incidents, strengthened security posture</p>
+                        </div>
+                    </div>
+
+                    <div class="block-cta">
+                        <a href="#" class="btn btn-primary">Explore Security Solutions</a>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Block 4: Authorization and Access Management Experts -->
+            <article class="role-block authorization">
+                <div class="block-image authorization"></div>
+                <div class="block-content">
+                    <h2>Authorization and Access Management Experts</h2>
+                    <p class="subheadline">Secure user access with advanced tools for authorization management and SoD analysis. Optimize roles, prevent excessive permissions.</p>
+                    <p class="body-copy">Evolve from manual reviews to intelligent automation. Secure your SAP landscape while reducing administrative overhead through smart governance.</p>
+                    
+                    <ul class="solutions-list">
+                        <li>
+                            <strong>User Access Governance</strong>
+                            Automated user lifecycle and access rights management
+                        </li>
+                        <li>
+                            <strong>Access Rights Review Automation</strong>
+                            Streamlined certifications and role analysis
+                        </li>
+                        <li>
+                            <strong>Fraud and Threat Detection</strong>
+                            Monitor authorization abuse and suspicious access patterns
+                        </li>
+                        <li>
+                            <strong>Custom Alert Creation Without Coding</strong>
+                            Create authorization-specific alerts for your requirements
+                        </li>
+                    </ul>
+
+                    <!-- Target Roles -->
+                    <div class="roles-section">
+                        <button class="roles-toggle" onclick="toggleRoles(this)">
+                            Who Benefits?
+                        </button>
+                        <div class="roles-content">
+                            <div class="roles-list">
+                                <div class="role-category">
+                                    <strong>Access Management</strong>
+                                    <ul>
+                                        <li>User Access Managers</li>
+                                        <li>User Provisioning Specialists</li>
+                                        <li>Access Certification Coordinators</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Authorization & Security</strong>
+                                    <ul>
+                                        <li>Authorization Specialists</li>
+                                        <li>SAP Security Consultants</li>
+                                        <li>IAM Administrators</li>
+                                    </ul>
+                                </div>
+                                <div class="role-category">
+                                    <strong>Governance & Design</strong>
+                                    <ul>
+                                        <li>Role Designers</li>
+                                        <li>License Compliance Managers</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Business Cases Tabs -->
+                    <div class="tabs-section">
+                        <h3>Business Case Examples</h3>
+                        <div class="tab-buttons">
+                            <button class="tab-button active" onclick="switchTab(this, 'auth-1')">Access Mgmt</button>
+                            <button class="tab-button" onclick="switchTab(this, 'auth-2')">Auth Design</button>
+                            <button class="tab-button" onclick="switchTab(this, 'auth-3')">Consulting</button>
+                            <button class="tab-button" onclick="switchTab(this, 'auth-4')">License</button>
+                            <button class="tab-button" onclick="switchTab(this, 'auth-5')">Certification</button>
+                            <button class="tab-button" onclick="switchTab(this, 'auth-6')">Role Design</button>
+                        </div>
+                        
+                        <div id="auth-1" class="tab-content active">
+                            <h4>🔑 User Access Manager</h4>
+                            <p><span class="challenge">Challenge:</span> Managing user lifecycle at scale</p>
+                            <p><span class="solution">Solution:</span> Alerts for orphaned accounts, dormant users, expired temporary access, excessive permissions, failed certifications, and emergency access abuse</p>
+                            <p><span class="result">Result:</span> Reduces security exposure, ensures access hygiene, streamlines compliance</p>
+                        </div>
+                        
+                        <div id="auth-2" class="tab-content">
+                            <h4>👥 Authorization Specialist</h4>
+                            <p><span class="challenge">Challenge:</span> Preventing toxic authorization combinations</p>
+                            <p><span class="solution">Solution:</span> Real-time SoD conflict detection, critical authorization analysis, direct assignment monitoring, authorization object changes, and super-user access tracking</p>
+                            <p><span class="result">Result:</span> Maintains least privilege principle, prevents authorization conflicts, reduces audit findings</p>
+                        </div>
+                        
+                        <div id="auth-3" class="tab-content">
+                            <h4>🎯 SAP Security Consultant</h4>
+                            <p><span class="challenge">Challenge:</span> Comprehensive security architecture and governance</p>
+                            <p><span class="solution">Solution:</span> Insights into role optimization, design flaws, vulnerability patterns, user behavior analytics, custom authorization scenarios, and policy gaps</p>
+                            <p><span class="result">Result:</span> Optimizes authorization model, reduces complexity, enhances security posture</p>
+                        </div>
+                        
+                        <div id="auth-4" class="tab-content">
+                            <h4>📜 License Compliance Manager</h4>
+                            <p><span class="challenge">Challenge:</span> SAP license optimization and compliance</p>
+                            <p><span class="solution">Solution:</span> Continuous monitoring of license assignments, indirect access scenarios, user vs. actual usage, professional user verification, and engine assignments</p>
+                            <p><span class="result">Result:</span> Optimizes license costs, ensures audit readiness, prevents compliance penalties</p>
+                        </div>
+                        
+                        <div id="auth-5" class="tab-content">
+                            <h4>✍️ Access Certification Coordinator</h4>
+                            <p><span class="challenge">Challenge:</span> Periodic access reviews and attestations</p>
+                            <p><span class="solution">Solution:</span> Automated certification campaigns, manager review queues, risk-based reviews, exception tracking, and completion metrics</p>
+                            <p><span class="result">Result:</span> Streamlines certification process, improves manager engagement, ensures timely completion</p>
+                        </div>
+                        
+                        <div id="auth-6" class="tab-content">
+                            <h4>🎨 Role Designer</h4>
+                            <p><span class="challenge">Challenge:</span> Creating efficient, secure role structures</p>
+                            <p><span class="solution">Solution:</span> Role comparison, similarity analysis, conflict detection before deployment, usage analytics, template recommendations, and impact analysis</p>
+                            <p><span class="result">Result:</span> Accelerates role design, ensures secure configurations, reduces rework</p>
+                        </div>
+                    </div>
+
+                    <div class="block-cta">
+                        <a href="#" class="btn btn-primary">Explore Access Solutions</a>
+                        <a href="#" class="btn btn-secondary">Read More</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- Universal Section -->
+    <section class="universal-section">
+        <div class="container">
+            <h2>One Platform. Every Role. Complete SAP Intelligence.</h2>
+            <p class="body-text">Skywind's solutions are designed to meet the unique needs of every SAP stakeholder—whether you're a business professional, IT expert, security specialist, auditor, or compliance manager. We empower teams across the ecosystem with tools for efficiency, security, and seamless SAP operation.</p>
+            
+            <div class="highlight-box">
+                <h3>✨ Custom Alert Creation Without Coding</h3>
+                <p>Every role benefits from the ability to create tailored alerts for their unique scenarios—without programming knowledge. This democratizes SAP intelligence across your organization.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h4>Business Users</h4>
+                    <p>Create alerts for specific processes</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Technical Teams</h4>
+                    <p>Monitor custom developments</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Security Teams</h4>
+                    <p>Define risk indicators</p>
+                </div>
+                <div class="benefit-item">
+                    <h4>Access Managers</h4>
+                    <p>Automate governance workflows</p>
+                </div>
+            </div>
+
+            <div class="final-cta">
+                <a href="#" class="btn btn-white">See All Solutions in Action</a>
+                <a href="#" class="btn btn-outline">Schedule a Demo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Skywind Software Group. All rights reserved.</p>
+            <p>Contact us: <a href="mailto:info@skywind.com">info@skywind.com</a> | <a href="https://www.skywind.com">www.skywind.com</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Tab switching functionality
+        function switchTab(button, tabId) {
+            // Get parent block
+            const block = button.closest('.role-block');
+            
+            // Remove active class from all buttons in this block
+            const allButtons = block.querySelectorAll('.tab-button');
+            allButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            
+            // Hide all tab contents in this block
+            const allTabs = block.querySelectorAll('.tab-content');
+            allTabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected tab
+            const selectedTab = document.getElementById(tabId);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+        }
+
+        // Roles toggle functionality
+        function toggleRoles(button) {
+            button.classList.toggle('active');
+            const content = button.nextElementSibling;
+            content.classList.toggle('active');
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate blocks on scroll (optional enhancement)
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all role blocks
+        document.querySelectorAll('.role-block').forEach(block => {
+            block.style.opacity = '0';
+            block.style.transform = 'translateY(20px)';
+            block.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(block);
+        });
+    </script>
+</body>
+</html>
+

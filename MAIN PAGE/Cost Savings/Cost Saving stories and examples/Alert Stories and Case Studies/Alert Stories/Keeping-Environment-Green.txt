@@ -1,0 +1,26 @@
+Keeping Green an Alert Story 
+ 
+A leading oil & petroleum refinery provider in Asia had a critical issue with fuming suction that is mandatory to perform by law every 60 minutes 24/7.  They were in need of a monitoring process that would validate a suction event is taking place or to send out alerts to the appropriate responsible parties in case of failure. The core reasons behind that need were to prevent environmental damages, to avoid heavy fine which can increase exponentially and to minimize damages to their public image.  
+ 
+Our team was called in for assistance and quickly found that the fuming suction system creates a specific file in a certain directory upon each fuming suction cycle completion. Creatively the Skywind team deployed out-of-the-box alert that validates that the file is created at the right intervals and initiates an alarm by sending out emails and text messages to the appropriate team member if this does not occur. 
+ 
+The swift outcome was beyond expectations, and since then, dozens of additional alerts have been set for additional critical infrastructure and business processes that have led to improved operational efficiency which have impacted an entire organisation. 
+ 
+Skywind Software Group brings more than 5 combined decades of experience and best practices to SAP® ERP world founded by three geeks who are masters in the BW, Basis and Business world. In 2012 the group developed and successfully deployed the 4C SaaS real time platform that came to light from a recognized growing need and discussions with our customers and followers. It seems that users were missing a real time monitoring and alert tool built for all types of users without the limitations of IT knowhow or expertize mostly to provide the ability to implement alerts on different levels including business, infrastructure and BW and to provide the right users with the right alerts without any bottlenecks enabling improved ERP operations.  
+ 
+4C™ alerts library are out of the box and provide real-time information on failures in need of immediate attention, events that didn’t occur or late to start and processes with high probability to fail. The alerts are self-improving based on customer pain points and crowd wisdom and accessible on any device and in a form of app for android and soon for IOS users. 
+ 
+The platform combines three packages: 
+ Business - SD/MM/HCM/FI/CO/PM/QM and more 
+
+ Infrastructure - BASIS/DB/Communications/Interfaces 
+
+ Applications - BW/Security/Users Management  
+
+
+ 
+This series is presented to demonstrate the Skywind work and to share real life alert stories we found interesting that came to light due to a specific need in one organization only now the alert is deployed among other fellow industry members.  
+ 
+To learn more and to see a demo please contact sales@skywind.com 
+ 
+

@@ -1,0 +1,55 @@
+
+Retail Client - Initial Printing Analysis (what we found) 
+C:\Users\user\Google Drive\Skywatch\Prospects\Olimpica\Printing _Dashboard (no brand).png
+
+ 
+1. Daily average of Retail Client SAP printing output is 37,430 pages printed via 27,310 document copies. 
+
+2. Based on our experience, we know that ~7.5% of the printed documents is a "waste" (e.g.) printed for nothing. It is 2,807 pages per day on average. 
+
+3. Analysis of Printers types showed that most of the printers in Retail Client sites are ink printers. Having that data and applying it to the number of ink cartridges, spent on a "wasted" printing, we've got 273$ a day plus 15$ a day "wasted" on paper. In total it is 288$ a day, meaning that 105,120$ is "wasted" yearly  (not including printers spare parts and cost of services and energy). 
+
+
+DAILY DATA 
+ COSTS YEARLY 
+ 
+average #of printed pages 
+ average #of printed copies 
+ 7.5%  
+of pages printed for nothing 
+ #of "wasted" cartridges 
+ cost of "wasted" cartridges 
+ cost of "wasted" paper 
+ cost of "wasted" cartridges yearly 
+ cost of "wasted" paper yearly 
+ 
+37,430 
+ 2,731 
+ 2,807 
+ 9 
+ $273 
+ $15 
+ $99,645 
+ $5,475 
+ 
+
+  
+What can be done to reduce these costs? (what we recommend) 
+1. Evaluate "heavily" printing SAP users and check if they suppose to print such big amounts of paper. Retail Client has 3,159 users that printed at least 1 paper during the measured (10 days) period. Top 20 of these users (0.06%) generated 26% of totally printed pages (see the dashboard print screen). We recommend to check the reasons behind the so "heavy" printing and put an eye on these users. 
+
+2. We also recommend to set up alerts, tracing events of "too many" printed pages and "too many" copies of the same document that were printed. 
+
+
+ 
+What else can be done to reduce printing overload and reduce risks and costs related to printing? 
+1. Set up alert tracing failed and stuck prints and send message to the print sender dynamically notifying him/her that the print is failed or being stuck.  
+
+2. Set up alert that traces consistently failing printers, helping to recognize problems with "bad" printers brands and identifying bottlenecks related to specific printing paths (problems in communication etc.) 
+
+3. Set up alert that traces critical documents that failed to print. This one could be defined, according to the department/user etc. If we presume, that some departments/users are mostly printing business documents, the special focus can be put on them apart from the rest. 
+
+
+ 
+ 
+ 
+

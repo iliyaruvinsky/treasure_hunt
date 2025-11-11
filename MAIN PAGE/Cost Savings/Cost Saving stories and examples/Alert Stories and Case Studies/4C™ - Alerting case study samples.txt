@@ -1,0 +1,231 @@
+
+Smooth SAP Operation 
+
+C:\Users\user\Google Drive\Skywatch\LOGO\SkyWind_Logo_New.png
+Reduce Risks / Cut Costs 
+
+
+
+
+
+info@skywind.com | www.skywind.com 
+C:\Users\user\Google Drive\Skywatch\LOGO\SkyWind_Logo_New.png
+4C™ is being used to monitor and alert for more than 50 SAP systems of customers from a wide variety of industries that include manufacturing, Education, Healthcare, Oil & Gas, Logistics, Food & Beverages, Government and Financial institutions. 
+ 
+   Usage of 4C™ benefits customers in both areas that contain risk as well as on-going operations where 4C™ contributes to substantial savings. 
+
+General 
+
+
+
+
+Saving over $100k with a single alert 
+
+Challenge: How to make sure proof of delivery (POD) invoices being issued? 
+ 
+Solution: 4C™ used Skywind’s specific alert to monitor this scenario 
+ 
+Business outcomes: 
+•Within several days of operation, several cases were found from the previous 18 months where invoices were not issues for deliveries that were performed due to missing customer approvals (proof of deliveries).  
+
+•The savings resulting of usage of this alert were above $100K  
+
+
+
+Retail Industry
+
+
+C:\Users\user\Google Drive\Skywatch\LOGO\SkyWind_Logo_New.png
+Challenge: Production orders don’t match customer orders 
+ 
+Background: Customer manufactures per customized order, mismatch between customer orders and production orders cause manufacturing disruptions and delayed deliveries as well as impact on profit. 
+ 
+Business outcome: Usage of 4C™ to perform real-time comparison between customer orders and production orders eliminates mismatch in time and enables continuous operations.  
+ 
+
+Solving mismatch in production orders 
+
+Manufacturing Industry
+
+
+
+C:\Users\user\Google Drive\Skywatch\LOGO\SkyWind_Logo_New.png
+Challenge: Vendor invoice terms don’t match vendor agreement terms 
+ 
+Background: Customer processes hundreds of monthly vendor invoices, mismatch in payment terms causes disruptions, delays and impacts operations. 
+ 
+Usage: Vendor payment terms differ from invoice payment terms. 4C™ monitors and cross-checks that the issues invoice terms match the vendors terms in the system. If any difference is detected, alerts are sent out accordingly. 
+ 
+Business Outcome: Customer is saving many working hours and delays by eliminating payment terms mismatch and is saving expensive employee time as well as impact for late payments or loss of income due to early payments.  
+ 
+
+Solving mismatch in payment terms 
+
+Manufacturing Industry
+
+
+
+
+Fund Transfer Fraud Detection 
+
+Background:  
+The bank uses over 150 alerts to monitor their business health. Their SAP system has strong vendor maintenance screen authorization features. The system administrator categorized the various fields based on sensitivity level which prevents from one authorized party to make changes to vendor’s details, without the approval of the other.  
+Challenge:  
+Client was confident that pilot will not find any incidents or business risks 
+Solution:  
+4C™ used several alerts for fraud detection and prevention alerts to notify on collaboration between two parties: 
+- Monitor if changes were made to vendors bank account details – either by unauthorized user or temporary changes made by authorized users 
+
+- Alternative payee: payments to a specific vendor can be transferred to an alternative payee 
+
+
+
+Business outcomes: 
+Eliminating the Risk - Skywind identified that each quarter for 4 days a bank account of a certain vendor is changed into an unknown bank account. The acting parties were traced and confessed. 
+The bank added many additional alerts to cover additional scenarios (e.g. alternative payee detection) to protect their business.  
+
+Financial Industry
+
+
+
+
+Detecting unexecuted transactions 
+
+Background:  
+The bank uses over 165 alerts to monitor their business health. The client deals with many international vendors and customers 
+Challenge:  
+the currency exchange update was not performed for several days, which caused major disruption to the business and was expensive to recover 
+Solution:  
+-4C™ started monitoring the currency update process and alert in case this process does not start on time, or does not start at all (event absence) 
+
+-an alert is also sent out upon successful or failed execution of the process (event presence) 
+
+
+
+Business outcomes: 
+•The customer is now getting immediate alerts in real time and eliminated such and many other scenarios from happening 
+
+•Skywind’s alerts freed many expensive resources time and increase organization's credibility in addition to save large costs from such challenges   
+
+
+
+Financial Industry
+
+
+
+
+Saving money by preventing Government fines 
+
+Challenge: How to keep the company ‘Green’ and its reputation? 
+Amongst the 180 + processes monitored, there is a process in the production of oil that includes the suction of dangerous fumes performed every hour. If this process does not take place, besides the environmental danger issues and company’s reputation, there is a substantial government fine that increases exponentially with each suction, not being performed on time 
+Solution: 4C™ used alert: 
+ - Checking updates on fume suction confirmation file 
+Business outcomes: 
+•4C™ is being used to monitor this process by checking every hour that a specific file in a SAP managed file directory is updated. If the time stamp of this files does not change once in an hour, meaning that the suction process has not taken place, an alert is sent out to all responsible parties.  
+
+•The savings are very substantial and already saved the customer 10s of thousands of $$$  
+
+
+
+Oil & Gas Industry
+
+
+
+Saving over $100k of printing costs 
+
+Challenge: How to gain insight and control of printing costs and lost revenues? 
+Background: A leading supermarket chain with 280 branches 
+ 
+ 
+ 
+ 
+ 
+Solution:  
+Alerts for ‘failed and stuck prints’, consistently failing printers, critical documents that failed to print, users that printing too many pages/copies 
+Business outcomes: 
+•Saved over $USD 110k in printing costs of 3200 users 
+
+•Identified unsent quarterly invoices that market as sent in SAP but were never sent because the printer was out of paper and significantly increased revenue collection 
+
+
+
+Retail Industry
+
+DAILY DATA 
+ ANNUAL COSTS  
+ 
+average # of printed pages 
+ average #of printed copies 
+ 7.5%  
+of pages printed for nothing 
+ # of "wasted" cartridges 
+ cost of "wasted" cartridges 
+ cost of "wasted" paper 
+ cost of "wasted" cartridges yearly 
+ cost of "wasted" paper yearly 
+ 
+37,430 
+ 2,731 
+ 2,807 
+ 9 
+ $273 
+ $15 
+ $99,645 
+ $5,475 
+ 
+
+
+
+C:\Users\user\Google Drive\Skywatch\LOGO\SkyWind_Logo_New.png
+Challenge: How to identify and prevent fraudulent behavior? 
+Background: This is a large manufacturer with over 5,000 employees WW.  
+Solution: 4C™ used two alerts by crosscheck: 
+ – Identify discounts above certain level 
+ - Identify credit / returns from customers 
+Business outcomes (Risk and Cost Saving): 
+•Alerts identified certain sales people used to offer high discounts to some customers in order to meet their targets and after quarter end customer would cancel the order and keep the new discount level in the system.  
+
+•The damage to the company was severe, impacted the profitability and accuracy of quarterly & annual reports.  
+
+•The alerts put in place enabled to make sure that policies were not breached and prevented fiscal loss in excess of tens of thousands of USD annually.  
+
+
+
+Manufacturing and 
+Retail Industry
+
+Discount Threshold Alert 
+
+
+
+
+License costs reduction & Abnormal Users activity  
+
+Challenge: How to reduce license costs and track abnormal users activity? 
+ 
+Solution: 4C™ used two alerts: 
+ - Inactive valid SAP users for more than 100 days 
+ - Users’ login time is longer than 12 hours 
+ 
+Business outcomes: 
+•Cutting costs - This has major savings on an annual basis and enables the customer to perform tracking for such cases. 
+
+•Identify potential risk - Customer also monitors users that are logged in to the SAP system for above 12 hours in order to prevent security access breaches.  
+
+
+
+Education Industry
+
+
+
+Challenge: Saving precious operation time of Basis team 
+ 
+Background: Large Healthcare provider with thousands of employees 
+ 
+Outcome: Using the Basis  alerts, the customer reports that there is at least a one hour saving for each team member – 5 members. 1200 hours annually that are worth at least $120K per year, and this is only for one area that is being monitored out of several modules which each have additional savings. 
+
+Saving $120K annually on effort – Basis alerts 
+
+Healthcare
+C:\Users\user\Google Drive\Skywatch\LOGO\SkyWind_Logo_New.png
+
