@@ -1,0 +1,60 @@
+A Tale of a Bank Account  
+Listening to our 4C™ platform users, assisting with their day to day business processes, has bought Skywind a name of a partner. One of the great satisfactions we find is in implementing alerts that our customers find to be valuable after they are certain, they will not bring any added value and ROI.  
+ 
+SAP system comes with strong vendor maintenance screen authorization features. The system administrator categorized the various fields based on sensitivity level which prevents from one authorized party to make changes to vendor’s details, without the approval of the other. The Skywind team saw the need to provide the system administrator and the finance team with fraud detection and prevention alert, to notify on collaboration between the two parties who might try to cover each other’s footprints. 
+ 
+We implemented this alert to demonstrate a customer possible behavior that he was not aware of and was certain it would return without any results. To his surprise we found and traced activities in one of the vendor’s account details that was switched and diverted to an unknown private bank account number for a period of 4 days every quarter. The acting parties were located and confessed to their wrongdoing. 
+  
+CUSTOMER'S TESTIMONIALS 
+ 
+ 
+ 
+ 
+4C allowed us to prevent and correct human mistakes and foresee future failures, while saving us time and effort in everyday tasks 
+ 
+ 
+S. Sigura 
+Global Operations Manager, Keter Plastic 
+ 
+ 
+ 
+ 
+4C enables us to effectively control irregular activities, by monitoring them before organizational processes can be affected 
+ 
+ 
+O.Seinfeld 
+Manager of SAP and Enterprise Packaged Application, Maccabi Health Services 
+ 
+ 
+ 
+4C has improved our response time drastically; we are now able to resolve problems, receive files from other systems into SAP and forecast future failures in data 
+ 
+  
+ 
+I.Shifrin 
+Chief Information Officer, Sonol Energy and Retail 
+ 
+ 
+ 
+For additional information or demo:  
+https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png
+
+
+ 
+ www.skywind.com 
+  
+ 
+ 
+ sales@skywind.com 
+  
+ 
+ 
+ +1 917 993 7170 
+  
+ 
+
+
+
+
+ 
+

@@ -1,0 +1,232 @@
+Reduce Risks Cut Costs 
+
+SMOOTH SAP® OPERATION 
+
+
+
+GENERAL 
+4C™ is being used to monitor and alert for more than 50 SAP® systems of customers from a wide variety of industries that include manufacturing, Education, Healthcare, Oil & Gas, Logistics, Food & Beverages, Government and Financial institutions. 
+Usage of 4C™ beneﬁts customers in both areas that contain risk as well as on-going operations where 4C™ contributes to substantial savings. 
+
+
+
+SAVING OVER $100KWITH A SINGLE ALERT 
+CHALLENGE  SOLUTION  
+How to make sure proof of  4C™ used Skywind’s speciﬁc alert  
+delivery (POD) invoices  to monitor this scenario 
+being issued?  
+
+
+
+
+  BUSINESS OUTCOMES 
+Within several days of operation, several cases were found from the previous 18 months where invoices were not issues for deliveries that were performed due to missing customer approvals (proof of deliveries). 
+The savings resulting of usage of this alert were above $100K 
+
+
+
+
+SOLVING MISMATCH IN PRODUCTION ORDERS 
+
+
+CHALLENGE  BACKGROUND  
+Production orders don’t match customer orders  Customer manufactures per customized order, mismatch between customer orders and  
+production orders cause manufacturing disruptions and delayed deliveries as well as impact on proﬁt. 
+
+
+  BUSINESS OUTCOMES 
+Usage of 4C™ to perform real-time comparison between customer orders and production orders eliminates mismatch in time and enables continuous operations. 
+
+
+
+
+SOLVING MISMATCH IN PAYMENTTERMS 
+
+
+
+CHALLENGE 
+Vendor invoice terms don’t match vendor agreement terms. 
+
+BACKGROUND 
+Customer processes hundreds of monthly vendor invoices, mismatch in payment terms causes disruptions, delays and impacts operations. 
+
+USAGE 
+Vendor payment terms diﬀer from invoice payment terms. 4C™ monitors and cross­checks that the issues invoice terms match the vendors terms in the system. If any diﬀerence is detected, alerts are sent out accordingly. 
+
+  BUSINESS OUTCOMES 
+Customer is saving many working hours and delays by eliminating payment terms mismatch and is saving expensive employee time as well as impact for late payments or loss of income due to early payments. 
+
+
+
+
+
+FUND TRANSFER FRAUD DETECTION 
+
+
+
+BACKGROUND 
+The bank uses over 150 alerts to monitor their business health. Their SAP® system has strong vendor maintenance screen authorization features. 
+The system administrator categorized the various ﬁelds based on sensitivity level which prevents from one authorized party to make changes to vendor’s details, without the approval of the other. 
+
+CHALLENGE 
+Customer was conﬁdent that pilot will not ﬁnd any incidents or business risks 
+
+SOLUTION 
+4C™ used several alerts for fraud detection and prevention alerts to notify on collaboration between two parties: 
+- Monitor if changes made to vendors bank account details 
+– either by unauthorized user or temporary changes made by authorized users 
+
+  BUSINESS OUTCOMES 
+Eliminating the Risk - Skywind identiﬁed that each quarter for 4 days a bank account of a certain vendor is changed into an unknown bank account. The acting parties were traced and confessed. 
+The bank added many additional alerts to cover additional scenarios and protect their business 
+
+
+
+
+
+DETECTING UNEXECUTED TRANSACTIONS 
+
+
+
+BACKGROUND 
+The bank uses over 165 alerts to monitor their business health. The customer deals with many international vendors and customers 
+
+CHALLENGE 
+The currency exchange update was not performed for several days, which caused major disruption to the business and was expensive to recover 
+
+SOLUTION 
+4C™ started monitoring the currency update process and alert incase this process does not start on time, or does not start at all (event absence) 
+an alert is also sent out upon successful or failed execution of the process (event presence) 
+
+  BUSINESS OUTCOMES 
+The customer is now getting immediate alerts in real time and eliminated such and many other scenarios from happening 
+Skywind’s alerts freed many expensive resources time and increase organization's credibility in addition to save large costs from such challenges 
+
+
+
+
+SAVING MONEY BY PREVENTING 
+
+GOVERNMENT FINES 
+
+CHALLENGE 
+How to keep the company ‘Green’ and its reputation? 
+Amongst the 180 + processes monitored, there is a process in the production of oil that includes the suction of dangerous fumes performed every hour. If this process does not take place, besides the environmental danger issues and company’s reputation, there is a substantial government ﬁne that increases exponentially with each suction, not being performed on time. 
+
+SOLUTION 
+4C™ used alert: 
+
+- Checking updates on fume suction conﬁrmation ﬁle 
+
+
+
+  BUSINESS OUTCOMES 
+4C™ is being used to monitor this process by checking every hour that a speciﬁc ﬁle in a SAP managed ﬁle directory is updated. If the time stamp of this ﬁles does not change once in an hour, meaning that the suction process has not taken place, an alert is sent out to all responsible parties. 
+The savings are very substantial and already saved the customer 10s of thousands of $$$ 
+
+
+
+
+SAVING OVER $100K OF PRINTING COSTS 
+
+
+CHALLENGE How to gain insight and control of printing costs and lost revenues?  
+ 
+Average # of printed pages  
+37,430  
+SOLUTION A leading supermarket chainAlerts for ‘failed and stuck prints’, consistently failing printers, critical documents that failed to print, users that printing too many pages/copies.  
+ 
+
+
+
+BACKGROUND 
+A leading supermarket chain with 280 branches 
+Average # of printed copies 
+2,731 
+DAILY DATA 
+7,5% of pages printed for nothing 
+2,807 
+# of “wasted” cartridges 
+9 
+cost of “wasted” cartridges 
+$273 
+BUSINESS OUTCOMES 
+A leading supermarket chainAlerts for ‘failed and stuck prints’, consistently failing printers, critical documents that failed to print, users that printing too many pages/copies. 
+cost of “wasted” paper 
+$15 
+ANNUAL COSTS 
+Average # of printed pages 
+$99,645 
+Average # of printed pages 
+$5,475 
+
+
+
+
+
+DISCOUNT THRESHOLD ALERT 
+
+
+
+BACKGROUND 
+How to identify and prevent fraudulent behavior? 
+
+CHALLENGE 
+This is a large manufacturer with over 5,000 employees WW. 
+
+SOLUTION 
+4C™ used two alerts by crosscheck: 
+Identify discounts above certain level 
+Identify credit / returns from customers 
+
+
+  BUSINESS OUTCOMES 
+Alerts identiﬁed certain sales people used to oﬀer high discounts to some customers in order to meet their targets and after quarter end customer would cancel the order and keep the new discount level in the system. 
+The damage to the company was severe, impacted the proﬁtability and accuracy of quarterly & annual reports. 
+The alerts put in place enabled to make sure that policies were not breached and prevented ﬁscal loss in excess of tens of thousands of USD annually. 
+
+
+
+
+LICENSE COSTS REDUCTION & ABNORMAL USERS ACTIVITY 
+
+
+
+CHALLENGE 
+
+BACKGROUND 
+How to reduce license costs and track 
+4C™ used two alerts: abnormal users activity? 
+-
+ Inactive valid SAP users for more than 100 days 
+
+-
+ Users’ login time is longer than 12 hours 
+
+
+
+OUTCOME 
+Using the Basis  alerts, the customer reports that there is at least a one hour saving for each team member – 5 members. 1200 hours annually that are worth at least $120K per year, and this is only for one area that is being monitored out of several modules which each have additional savings. 
+
+
+
+
+SAVING $120K ANNUALLY ON EFFORT – BASIS ALERTS 
+CHALLENGE  SOLUTION  
+Saving precious operation time of Basis  Large Healthcare provider with  
+team  thousands of employees 
+
+
+
+
+  BUSINESS OUTCOMES 
+4C™ is being used to monitor this process by checking every hour that a speciﬁc ﬁle in a SAP managed ﬁle directory is updated. If the time stamp of this ﬁles does not change once in an hour, meaning that the suction process has not taken place, an alert is sent out to all responsible parties. 
+The savings are very substantial and already saved the customer 10s of thousands of $$$ 
+
+
+The Science of Data. The Art of Business.
+ info@skywind.com | www.skywind.com 
+
+
+
+

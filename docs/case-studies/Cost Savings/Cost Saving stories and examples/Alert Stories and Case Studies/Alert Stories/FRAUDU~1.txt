@@ -1,0 +1,24 @@
+﻿
+The Process Flow and the Background:
+Multinational manufacturing company that uses sea transportation for logistics and distribution purposes, sending thousands of containers by sea vessels.
+In order to put the container in the vessel, the container's "seat" has to be reserved in the vessel's floor. It is done by purchasing a "seat" like a flying ticket, so thousands of tickets are purchased and payed each month.
+The payment procedure, includes the creation of bank payment order file and it's placement in the secured folder. The file then is securely transferred to the bank's payment system for payment transaction execution. 
+
+
+The Story, based on the real event:
+The vessel company (the forwarder) has applied to the manufacturer, complaining about overdue/missing payments. The manufacturer's internal checks in the SAP system had shown nothing wrong, e.g. the related payments were timely and correctly processed. After several repeated checks made by both parties, which involved multiple staff efforts and took a number of months, the manufacturer had started to scan the transfer payment files and discovered that file's content was altered by one of its employees. 
+The employee had an access to the files and he was changing from time to time part of the bank requisites inside the files which allowed him to redirect payments to his own account.
+The whole process of discovery have took about 2 years and costed hundreds of thousands of dollars.
+The manufacturer have requested from Skywind to create a preventive alerting mechanism, allowing to compare bank transfer files against the payment run results in the SAP system. The comparison have become an integral part of the security procedure, before the files are transferred to the bank for actual payment.
+
+
+The mechanism, created by Skywind performs simultaneous checks
+for 3 different cases:
+
+1. Recurrent checks are performed in regard to a file's size and structure.
+2. Recurrent checks are performed, ensuring that the file is not locked, meaning that somebody has opened the file and keeps it open during the check.
+3. Recurrent checks are performed in regard to a file's content by parsing file's content and comparing it against the respective data in the SAP system.
+
+These 3 measures provided a bulletproof defense mechanism, ensuring that the files remain intact during the creation and transfer processes.
+
+

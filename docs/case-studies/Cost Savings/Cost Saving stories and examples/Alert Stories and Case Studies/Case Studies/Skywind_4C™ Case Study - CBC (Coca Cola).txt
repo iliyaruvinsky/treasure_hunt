@@ -1,0 +1,29 @@
+
+Name: CBC  
+
+Head office Location: Bnei Brak, Israel 
+Industry: Exclusive manufacturer and distributor of world largest drink branches (Coca Cola, Stella Artois, Hoegaarden, Tuborg, Carlsberg, Leffe and many others)   
+The Stroy: The Central Bottling Company has implemented Skywind's 4C™ - a system for monitoring the infrastructure and applicative business processes of SAP environments developed by Skywind. 
+A few months ago we installed Skywind's 4C™ system to monitor the SAP BW systems in the organization," said Nili Zinger, BI director and Meital Hayoun, who is implementing BW at the Central Bottling Company, adding: "The integration of the system helped us get the information in real time and "We are the first to know about faults or incompleteness of the data uploads before the users, leaving us time to address the problem and improve the customer experience of system stability, as a result of which we have improved our work and improved the service we provide our customers." 
+This improvement is reflected in several aspects: 
+Data availability - Cases of failed uploads: 
+As part of our work routine, each morning before the users' day began, the night loading processes were tested so that there was enough time to handle the failed uploads. In the 4C™ system we set up a process that scans all the loading processes and, if necessary, sends an email and SMS several minutes after the loading failure. In this way, the information is sent to us almost in real time and without the need for our proactive testing, which allows us to maintain high data availability without the users feeling that we have experienced a problem. 
+ 
+Data availability - Cases of uploads that have not started: 
+There are not regular processes that are scheduled according to a preliminary process that occurs in BI. Today we have the ability to set Alerts to locate "tweezers" in these cases. In the event that the Alert logic is violated, an email or SMS will be sent to us. In the past there were cases in which the user alerted us to the problem and only then did we know that some treatment was necessary, so even in this case we manage to deal with the problem without the user experiencing it. 
+ 
+ 
+ 
+System Workbench Cleanup: 
+The SAP BI system has existed in our company for many years. Many models have been developed, some of which have undergone changes and additions over the years. As a result, there are still old and irrelevant processes that continue to work in the system and consume expensive resources. With Alerts built into 4C™ we tracked them down easily, handled them as needed, and released resources from the BW. This process helps us maintain a clean and orderly system and later deliver a cleaner system to HANA. 
+ 
+Locating various components that came out of activation: 
+Sometimes, during the ongoing work of the implementer, Transports are transferred, which, although successful, have caused various components to become not active. For example, Transformation, Transfer Rules, Update Rules. In these cases, too, we defined Alerts that send email applications to the component that is not in the Active status, which allows us to fix this before the night upload. 
+ 
+Dynamic cases: 
+It is possible to define test processes for specific cases and the information is 'pushed' to us instead of we search for it. 
+ 
+Situation Snapshots: 
+The system contains a "Monitoring" screen, which gives us a snapshot at any given moment about the components and processes in the system and their statuses. 
+ 
+

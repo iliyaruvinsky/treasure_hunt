@@ -1,0 +1,68 @@
+
+Preventing Financial LossesIn Your SAP®
+ 
+ 
+We often hear stories of how stressed salespeople are, willing to bend the rules in order to reach targets or out of fear to lose their jobs. One of our leading European clients suspected that he was subject to manipulation by a sales person, who negotiated a large stock order for appliances with the customer at the end of the fiscal period. In return for a back-credit he would lower the prices for all accumulated purchases and guarantee full pay back for stock return during next fiscal period. On the system it appeared as returns with credits or pay-backs, costing the company extra transportation costs, lower sales prices and inflated sales commissions. 
+ 
+Within minutes of deploying 4C™ platform we uncovered a total of $190K “suspicious credits”. As a result we added a set of alerts that exposed customers who received credits starting with a configurable transaction threshold of $20K. 
+  
+By using 4C™ our client caught a systematic and creative method of manipulating the system in order to increase sales commissions and achieve sales targets. The impact of deploying 4C™ platform was immediate and maximized real-time control, preventing these types of activities from reoccurring. 
+ 
+
+CUSTOMER'STESTIMONIALS
+ 
+ 
+
+ 
+ 
+4C allowed us to prevent and correct human mistakes and foresee future failures, while saving us time and effort in everyday tasks 
+ 
+ 
+S. Sigura 
+Global Operations Manager, Keter Plastic 
+ 
+ 
+
+ 
+ 
+4C enables us to effectively control irregular activities, by monitoring them before organizational processes can be affected 
+ 
+ 
+O.Seinfeld 
+Manager of SAP and Enterprise Packaged Application, Maccabi Health Services 
+ 
+ 
+
+ 
+4C has improved our response time drastically; we are now able to resolve problems, receive files from other systems into SAP and forecast future failures in data 
+ 
+  
+ 
+I.Shifrin 
+Chief Information Officer, Sonol Energy and Retail 
+ 
+ 
+ 
+For additional information or demo:  
+https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png
+
+
+ 
+
+ www.skywind.com 
+  
+ 
+ 
+
+ sales@skywind.com 
+  
+ 
+ 
+
+ +1 917 993 7170 
+  
+ 
+
+
+ 
+

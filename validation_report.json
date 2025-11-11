@@ -1,0 +1,50 @@
+[
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "docs\\product-docs\\about-us.md",
+    "message": "Referenced file does not exist: mailto:info@skywindsoftware.com"
+  },
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "frontend\\src\\main.tsx",
+    "message": "Referenced file does not exist: ./App"
+  },
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "frontend\\src\\App.tsx",
+    "message": "Referenced file does not exist: ./pages/Dashboard"
+  },
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "frontend\\src\\App.tsx",
+    "message": "Referenced file does not exist: ./pages/Upload"
+  },
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "frontend\\src\\App.tsx",
+    "message": "Referenced file does not exist: ./pages/Findings"
+  },
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "frontend\\src\\App.tsx",
+    "message": "Referenced file does not exist: ./pages/Reports"
+  },
+  {
+    "type": "missing_file",
+    "severity": "high",
+    "file": "frontend\\src\\App.tsx",
+    "message": "Referenced file does not exist: ./components/Layout"
+  },
+  {
+    "type": "duplicate_definition",
+    "severity": "high",
+    "file": "multiple",
+    "message": "Duplicate focus area codes found: ['Business Protection', 'Business Control', 'Access Governance', 'Technical Control', 'Jobs Control', 'S/4HANA Excellence', 'Access Governance', 'Business Control', 'Business Protection', 'Jobs Control', 'S/4HANA Excellence', 'Technical Control', 'Business Protection', 'Business Control', 'Access Governance', 'Technical Control', 'Jobs Control', 'S/4HANA Excellence', 'Business Protection', 'Business Control', 'Access Governance', 'Technical Control', 'Jobs Control', 'S/4HANA Excellence', 'Business Protection', 'Business Control', 'Technical Control', 'Jobs Control', 'S/4HANA Excellence', 'Business Protection', 'Business Control', 'Access Governance', 'Technical Control', 'Jobs Control', 'S/4HANA Excellence', 'ACCESS_GOVERNANCE', 'BUSINESS_PROTECTION', 'BUSINESS_CONTROL', 'ACCESS_GOVERNANCE', 'TECHNICAL_CONTROL', 'JOBS_CONTROL', 'S4HANA_EXCELLENCE']"
+  }
+]
