@@ -71,7 +71,11 @@ Once the backend is running, visit:
 ## Documentation
 
 - [Quick Start Guide](QUICK_START.md)
-- [Testing Guide](TESTING_GUIDE.md)
+- [Quick Test Guide](QUICK_TEST.md) - **Start here for testing!**
+- [Testing Checklist](TESTING_CHECKLIST.md) - Comprehensive testing
+- [Testing Summary](TESTING_SUMMARY.md) - Testing overview
+- [Next Steps](NEXT_STEPS.md) - Roadmap and enhancements
+- [Deployment Guide](DEPLOYMENT.md)
 - [Validation Report](VALIDATION_REPORT.md)
 - [Merge Strategy](MERGE_STRATEGY.md)
 

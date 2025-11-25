@@ -103,8 +103,11 @@ class ExcelParserSoDA(BaseParser):
                         result_df.columns = result_df.iloc[0]
                         result_df = result_df[1:].reset_index(drop=True)
                     
-                    # Convert to records
-                    records = result_df.to_dict('records')
+                    # Convert to records, handling NaN values
+                    # This preserves ALL fields from the source file (up to 100+ fields)
+                    # Replace NaN with None before converting to dict
+                    result_df = result_df.where(pd.notna(result_df), None)
+                    records = result_df.to_dict('records')  # All columns preserved
                     data_records.extend(records)
                 except Exception as e:
                     result['errors'].append(f"Error parsing {sheet_name}: {str(e)}")

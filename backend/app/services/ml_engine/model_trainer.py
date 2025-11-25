@@ -10,7 +10,7 @@ from sklearn.metrics import mean_absolute_error, r2_score
 import pickle
 import os
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any
 from sqlalchemy.orm import Session
 from app.models.finding import Finding
 from app.models.money_loss import MoneyLossCalculation

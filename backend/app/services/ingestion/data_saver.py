@@ -5,6 +5,8 @@ from typing import Dict, Any, List
 from sqlalchemy.orm import Session
 from datetime import datetime
 import re
+import json
+import math
 
 from app.models.data_source import DataSource
 from app.models.alert import Alert, AlertMetadata
@@ -16,6 +18,36 @@ class DataSaver:
     
     def __init__(self, db: Session):
         self.db = db
+    
+    def _clean_json_value(self, value: Any) -> Any:
+        """Clean value for JSON serialization (replace NaN, Infinity with null)"""
+        # Handle float special values
+        if isinstance(value, float):
+            if math.isnan(value) or math.isinf(value):
+                return None
+            # Check for very large numbers that might cause JSON issues
+            if abs(value) > 1e308:
+                return None
+        # Handle numpy/pandas types
+        elif hasattr(value, 'item'):  # numpy scalar
+            try:
+                return self._clean_json_value(value.item())
+            except (ValueError, OverflowError):
+                return None
+        elif isinstance(value, dict):
+            return {k: self._clean_json_value(v) for k, v in value.items()}
+        elif isinstance(value, list):
+            return [self._clean_json_value(item) for item in value]
+        # Handle other non-serializable types
+        try:
+            json.dumps(value)  # Test if serializable
+            return value
+        except (TypeError, ValueError, OverflowError):
+            return str(value) if value is not None else None
+    
+    def _clean_record(self, record: Dict[str, Any]) -> Dict[str, Any]:
+        """Clean a record by replacing NaN/Infinity values with null"""
+        return {k: self._clean_json_value(v) for k, v in record.items()}
     
     def save_4c_alert(self, data_source: DataSource, parse_result: Dict[str, Any]):
         """Save 4C alert data to database"""
@@ -34,13 +66,35 @@ class DataSaver:
         self.db.flush()
         
         # Save alert records
-        for record in data[:1000]:  # Limit to first 1000 records for initial testing
-            alert = self._parse_alert_record(record)
-            alert.data_source_id = data_source.id
-            alert.raw_data = record
-            self.db.add(alert)
+        # Note: All fields from source file (up to 100+) are preserved in raw_data JSON column
+        from app.core.config import settings
         
-        self.db.commit()
+        # Apply limit if configured
+        records_to_process = data
+        if settings.MAX_RECORDS_PER_FILE:
+            records_to_process = data[:settings.MAX_RECORDS_PER_FILE]
+        
+        # Process in batches to avoid memory issues
+        batch_size = settings.BATCH_SIZE
+        total_records = len(records_to_process)
+        
+        for i in range(0, total_records, batch_size):
+            batch = records_to_process[i:i + batch_size]
+            for record in batch:
+                # Clean record to remove NaN values (preserves all fields)
+                cleaned_record = self._clean_record(record)  # All fields preserved
+                alert = self._parse_alert_record(cleaned_record)  # Only extracts common fields
+                alert.data_source_id = data_source.id
+                alert.raw_data = cleaned_record  # Complete record with all fields stored here
+                self.db.add(alert)
+            
+            # Commit batch to avoid large transactions
+            self.db.commit()
+        
+        # Update metadata with actual count saved
+        if settings.MAX_RECORDS_PER_FILE and len(data) > settings.MAX_RECORDS_PER_FILE:
+            alert_metadata.result_count = len(records_to_process)
+            self.db.commit()
     
     def save_soda_report(self, data_source: DataSource, parse_result: Dict[str, Any]):
         """Save SoDA report data to database"""
@@ -67,13 +121,35 @@ class DataSaver:
         self.db.flush()
         
         # Save report records
-        for record in data[:1000]:  # Limit to first 1000 records
-            report = self._parse_soda_record(record, metadata.get('report_type'))
-            report.data_source_id = data_source.id
-            report.raw_data = record
-            self.db.add(report)
+        # Note: All fields from source file (up to 100+) are preserved in raw_data JSON column
+        from app.core.config import settings
         
-        self.db.commit()
+        # Apply limit if configured
+        records_to_process = data
+        if settings.MAX_RECORDS_PER_FILE:
+            records_to_process = data[:settings.MAX_RECORDS_PER_FILE]
+        
+        # Process in batches to avoid memory issues
+        batch_size = settings.BATCH_SIZE
+        total_records = len(records_to_process)
+        
+        for i in range(0, total_records, batch_size):
+            batch = records_to_process[i:i + batch_size]
+            for record in batch:
+                # Clean record to remove NaN values (preserves all fields)
+                cleaned_record = self._clean_record(record)  # All fields preserved
+                report = self._parse_soda_record(cleaned_record, metadata.get('report_type'))  # Only extracts common fields
+                report.data_source_id = data_source.id
+                report.raw_data = cleaned_record  # Complete record with all fields stored here
+                self.db.add(report)
+            
+            # Commit batch to avoid large transactions
+            self.db.commit()
+        
+        # Update metadata with actual count saved
+        if settings.MAX_RECORDS_PER_FILE and len(data) > settings.MAX_RECORDS_PER_FILE:
+            report_metadata.result_count = len(records_to_process)
+            self.db.commit()
     
     def _parse_alert_record(self, record: Dict[str, Any]) -> Alert:
         """Parse a single alert record"""

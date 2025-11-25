@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker compose exec:*)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:api.github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(test:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(dir /s /b *.xlsx 2)",
+      "Bash(nul)",
+      "Bash(findstr:*)",
+      "Bash(powershell:*)",
+      "Bash(python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

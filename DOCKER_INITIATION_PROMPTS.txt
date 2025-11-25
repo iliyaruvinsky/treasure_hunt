@@ -1,0 +1,18 @@
+View logs:
+  docker compose logs -f
+
+  Stop all services:
+  docker compose down
+
+Restart services:
+  docker compose restart
+
+Initialize DB:
+  docker compose exec backend python -m app.utils.init_db
+ 
+
+Recreate Database (Will lose existing data):
+  docker compose down -v
+  docker compose up -d
+  docker compose exec backend python -m app.utils.init_db
+

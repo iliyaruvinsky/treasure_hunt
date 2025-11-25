@@ -21,6 +21,10 @@ class Settings(BaseSettings):
     STORAGE_TYPE: str = "local"  # local or s3
     STORAGE_PATH: str = "./storage"
     
+    # Data Ingestion Limits
+    MAX_RECORDS_PER_FILE: Optional[int] = None  # None = no limit, set to limit records per file
+    BATCH_SIZE: int = 1000  # Process records in batches to avoid memory issues
+    
     # Application
     SECRET_KEY: str
     DEBUG: bool = True

@@ -1,4 +1,5 @@
-FROM node:18-alpine
+# Build stage
+FROM node:18-alpine AS builder
 
 WORKDIR /app
 
@@ -6,12 +7,25 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
+# Note: For production, consider generating package-lock.json first for reproducible builds
 RUN npm install
 
 # Copy application code
 COPY . .
 
-EXPOSE 3000
+# Build application
+RUN npm run build
 
-CMD ["npm", "run", "dev"]
+# Production stage
+FROM nginx:alpine
+
+# Copy built files from builder
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
 

@@ -13,7 +13,8 @@ class HybridMoneyLossEngine:
     """Hybrid engine combining LLM and ML for money loss calculation"""
     
     def __init__(self, llm_client=None):
-        self.llm_calculator = MoneyLossLLM(llm_client)
+        # Only initialize LLM if client is provided (avoid API key errors)
+        self.llm_calculator = MoneyLossLLM(llm_client) if llm_client else None
         self.ml_calculator = MoneyLossML()
     
     def calculate(self, finding: Finding,
@@ -38,7 +39,7 @@ class HybridMoneyLossEngine:
         ml_result = None
         
         # Get LLM estimate
-        if use_llm:
+        if use_llm and self.llm_calculator:
             try:
                 llm_result = self.llm_calculator.calculate(
                     finding, issue_type, additional_context
@@ -46,6 +47,8 @@ class HybridMoneyLossEngine:
             except Exception as e:
                 # Fallback to ML if LLM fails
                 use_llm = False
+        else:
+            use_llm = False
         
         # Get ML estimate
         if use_ml:

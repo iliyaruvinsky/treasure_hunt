@@ -1,53 +1,104 @@
-version: '3.8'
+# Development docker-compose configuration
+# Note: version attribute is no longer needed in newer Docker Compose versions
+# For production, use: docker-compose -f docker-compose.prod.yml
 
 services:
   postgres:
     image: postgres:15-alpine
+    container_name: tha-postgres
     environment:
-      POSTGRES_USER: tha_user
-      POSTGRES_PASSWORD: tha_password
-      POSTGRES_DB: treasure_hunt_analyzer
+      POSTGRES_USER: ${POSTGRES_USER:-tha_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-tha_password}
+      POSTGRES_DB: ${POSTGRES_DB:-treasure_hunt_analyzer}
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U tha_user"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-tha_user}"]
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    networks:
+      - tha-network
 
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    container_name: tha-backend
     ports:
-      - "8000:8000"
+      - "${BACKEND_PORT:-8080}:8000"
     environment:
-      DATABASE_URL: postgresql://tha_user:tha_password@postgres:5432/treasure_hunt_analyzer
-      STORAGE_TYPE: local
+      DATABASE_URL: postgresql://${POSTGRES_USER:-tha_user}:${POSTGRES_PASSWORD:-tha_password}@postgres:5432/${POSTGRES_DB:-treasure_hunt_analyzer}
+      STORAGE_TYPE: ${STORAGE_TYPE:-local}
       STORAGE_PATH: /app/storage
+      SECRET_KEY: ${SECRET_KEY:-dev-secret-key-change-in-production}
+      DEBUG: ${DEBUG:-True}
+      ENVIRONMENT: ${ENVIRONMENT:-development}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      ANTHROPIC_API_KEY: ${ANTHROPIC_API_KEY:-}
+      LLM_PROVIDER: ${LLM_PROVIDER:-openai}
     volumes:
-      - ./backend:/app
-      - ./storage:/app/storage
+      # NOTE: Volume mount disabled due to Windows Google Drive (G:) access issues
+      # To enable hot-reload: Configure Docker Desktop → Settings → Resources → File Sharing → Add G: drive
+      # For now, code changes require rebuild: docker compose up -d --build
+      # - ./backend:/app
+      - storage_data:/app/storage
     depends_on:
       postgres:
         condition: service_healthy
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload --limit-max-requests 1000 --limit-concurrency 1000
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped
+    networks:
+      - tha-network
 
   frontend:
     build:
       context: ./frontend
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
+    container_name: tha-frontend
     ports:
-      - "3000:3000"
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
+      - "${FRONTEND_PORT:-3001}:3000"
+    environment:
+      - VITE_API_BASE_URL=${VITE_API_BASE_URL:-http://localhost:8080/api/v1}
+    # NOTE: Volume mount disabled due to Windows Google Drive (G:) access issues
+    # To enable hot-reload: Configure Docker Desktop → Settings → Resources → File Sharing → Add G: drive
+    # For now, code changes require rebuild: docker compose up -d --build frontend
+    # volumes:
+    #   - ./frontend:/app
+    #   - /app/node_modules
     depends_on:
-      - backend
-    command: npm run dev
+      backend:
+        condition: service_healthy
+    command: npm run dev -- --host 0.0.0.0 --port 3000
+    # Health check disabled for dev mode (Vite takes time to start)
+    # Uncomment for production-like testing
+    # healthcheck:
+    #   test: ["CMD-SHELL", "curl -f http://localhost:3000 || exit 1"]
+    #   interval: 30s
+    #   timeout: 10s
+    #   retries: 3
+    #   start_period: 60s
+    restart: unless-stopped
+    networks:
+      - tha-network
 
 volumes:
   postgres_data:
+    driver: local
+  storage_data:
+    driver: local
+
+networks:
+  tha-network:
+    driver: bridge
 

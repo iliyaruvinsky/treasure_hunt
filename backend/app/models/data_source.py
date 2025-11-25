@@ -39,4 +39,5 @@ class DataSource(Base):
     alerts = relationship("Alert", back_populates="data_source")
     reports = relationship("SoDAReport", back_populates="data_source")
     findings = relationship("Finding", back_populates="data_source")
+    analysis_runs = relationship("AnalysisRun", back_populates="data_source")
 

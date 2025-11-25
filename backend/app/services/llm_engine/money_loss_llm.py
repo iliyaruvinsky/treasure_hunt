@@ -55,7 +55,11 @@ Provide your analysis in the following JSON format:
 }}"""
 
     def __init__(self, llm_client: Optional[LLMClient] = None):
-        self.llm_client = llm_client or get_llm_client()
+        try:
+            self.llm_client = llm_client or get_llm_client()
+        except (ValueError, Exception):
+            # If LLM client can't be initialized (no API key), set to None
+            self.llm_client = None
     
     def calculate(self, finding: Finding, 
                   issue_type: Optional[IssueType] = None,
@@ -76,6 +80,10 @@ Provide your analysis in the following JSON format:
             risk_category=finding.risk_assessment.risk_category if finding.risk_assessment else "Unknown",
             additional_context=self._format_additional_context(additional_context or {})
         )
+        
+        if not self.llm_client:
+            # No LLM client available, use fallback
+            return self._fallback_calculation(finding, issue_type)
         
         try:
             # Get LLM response

@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, DateTime, JSON, Text
+from sqlalchemy import Column, Integer, String, DateTime, JSON, Text, Float, ForeignKey
+from sqlalchemy.orm import relationship
 from app.core.database import Base
 from datetime import datetime
 
@@ -7,6 +8,7 @@ class AnalysisRun(Base):
     __tablename__ = "analysis_runs"
 
     id = Column(Integer, primary_key=True, index=True)
+    data_source_id = Column(Integer, ForeignKey("data_sources.id"), index=True, nullable=True)
     
     # Run metadata
     run_name = Column(String)
@@ -24,4 +26,7 @@ class AnalysisRun(Base):
     # Configuration
     analysis_config = Column(JSON)  # Configuration used for this run
     error_message = Column(Text)
+
+    # Relationships
+    data_source = relationship("DataSource", back_populates="analysis_runs")
 

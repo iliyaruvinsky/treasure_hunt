@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, Depends, HTTPException, status
+from fastapi import APIRouter, UploadFile, File, Depends, HTTPException, status, Request
 from sqlalchemy.orm import Session
 from typing import List
 import os
@@ -12,6 +12,7 @@ from app.models.data_source import DataSource, DataSourceType, FileFormat
 from app.services.ingestion.parser_factory import ParserFactory
 from app.services.ingestion.data_saver import DataSaver
 from app.schemas.ingestion import DataSourceResponse, UploadResponse
+from app.utils.audit_logger import audit_log
 from pydantic import BaseModel
 
 router = APIRouter(prefix="/ingestion", tags=["ingestion"])
@@ -19,6 +20,7 @@ router = APIRouter(prefix="/ingestion", tags=["ingestion"])
 
 @router.post("/upload", response_model=UploadResponse)
 async def upload_file(
+    request: Request,
     file: UploadFile = File(...),
     db: Session = Depends(get_db)
 ):
@@ -49,25 +51,44 @@ async def upload_file(
         )
     
     # Determine data type (alert or report)
-    # This is a simple heuristic - can be improved
+    # Check for 4C alert patterns: _XXXXXX_XXXXXX (6 digits _ 6 digits)
     filename_lower = file.filename.lower()
-    if 'alert' in filename_lower or 'slg_' in filename_lower:
+    import re
+    if 'alert' in filename_lower or 'slg_' in filename_lower or re.search(r'_\d{6}_\d{6}', file.filename):
         data_type = DataSourceType.ALERT
-    else:
+    # Check for SoDA report patterns
+    elif any(pattern in filename_lower for pattern in ['avr_', 'pvr_', 'arp_', 'crv_', 'ivr_', 'rau_', 'tru_', 'uat_']):
         data_type = DataSourceType.REPORT
+    else:
+        # Default to ALERT for 4C files, REPORT for others
+        data_type = DataSourceType.ALERT if file_ext == 'xlsx' else DataSourceType.REPORT
     
     # Create storage directory if it doesn't exist
     storage_path = Path(settings.STORAGE_PATH)
     storage_path.mkdir(parents=True, exist_ok=True)
     
-    # Save file
+    # Save file (with size limit check)
+    MAX_FILE_SIZE = 100 * 1024 * 1024  # 100MB
     file_path = storage_path / f"{datetime.utcnow().timestamp()}_{file.filename}"
     try:
+        # Read file in chunks to handle large files and check size
+        file_size = 0
         with open(file_path, "wb") as buffer:
-            shutil.copyfileobj(file.file, buffer)
+            while True:
+                chunk = await file.read(8192)  # Read 8KB chunks
+                if not chunk:
+                    break
+                file_size += len(chunk)
+                if file_size > MAX_FILE_SIZE:
+                    raise HTTPException(
+                        status_code=status.HTTP_413_REQUEST_ENTITY_TOO_LARGE,
+                        detail=f"File size exceeds maximum allowed size of {MAX_FILE_SIZE / 1024 / 1024}MB"
+                    )
+                buffer.write(chunk)
         
-        file_size = file_path.stat().st_size
-        
+    except HTTPException:
+        # Re-raise HTTP exceptions (like file size limit)
+        raise
     except Exception as e:
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
@@ -92,12 +113,40 @@ async def upload_file(
     # Parse file
     parser = ParserFactory.get_parser(str(file_path))
     if not parser:
+        # Try to diagnose why no parser was found
+        from app.services.ingestion.excel_parser_4c import ExcelParser4C
+        from app.services.ingestion.excel_parser_soda import ExcelParserSoDA
+        from pathlib import Path as PathLib
+        
+        file_ext = PathLib(file_path).suffix.lower()
+        filename = PathLib(file_path).stem
+        diagnosis = []
+        
+        if file_ext == '.xlsx':
+            parser_4c = ExcelParser4C()
+            parser_soda = ExcelParserSoDA()
+            can_parse_4c = parser_4c.can_parse(str(file_path))
+            can_parse_soda = parser_soda.can_parse(str(file_path))
+            diagnosis.append(f"4C parser can_parse: {can_parse_4c}")
+            diagnosis.append(f"SoDA parser can_parse: {can_parse_soda}")
+            
+            # Check if file has Alert Parameters sheet
+            try:
+                import pandas as pd
+                xl_file = pd.ExcelFile(file_path)
+                has_alert_params = 'Alert Parameters' in xl_file.sheet_names
+                diagnosis.append(f"Has 'Alert Parameters' sheet: {has_alert_params}")
+                diagnosis.append(f"Sheet names: {xl_file.sheet_names}")
+            except Exception as e:
+                diagnosis.append(f"Error checking sheets: {str(e)}")
+        
+        error_msg = f"No parser available for this file: {file.filename}. Diagnosis: {'; '.join(diagnosis)}"
         data_source.status = "error"
-        data_source.error_message = "No parser available for this file"
+        data_source.error_message = error_msg
         db.commit()
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
-            detail="No parser available for this file"
+            detail=error_msg
         )
     
     try:
@@ -132,6 +181,29 @@ async def upload_file(
         
         db.commit()
         
+        # Log the upload
+        user_ip = request.client.host if request else None
+        user_agent = request.headers.get("user-agent") if request else None
+        audit_log(
+            db=db,
+            action="upload",
+            entity_type="data_source",
+            entity_id=data_source.id,
+            user_ip=user_ip,
+            user_agent=user_agent,
+            description=f"Uploaded file: {file.filename}",
+            details={
+                "filename": file.filename,
+                "file_format": data_source.file_format,
+                "data_type": data_source.data_type,
+                "file_size": data_source.file_size,
+                "status": data_source.status,
+                "records_count": len(parse_result.get('data', []))
+            },
+            status="success" if data_source.status == "completed" else "error",
+            error_message=data_source.error_message if data_source.status == "error" else None
+        )
+        
         return UploadResponse(
             data_source_id=data_source.id,
             filename=file.filename or "unknown",
@@ -140,9 +212,13 @@ async def upload_file(
         )
         
     except Exception as e:
+        db.rollback()  # Rollback any pending transaction
         data_source.status = "error"
         data_source.error_message = str(e)
-        db.commit()
+        try:
+            db.commit()
+        except Exception:
+            db.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Error parsing file: {str(e)}"

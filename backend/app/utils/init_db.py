@@ -9,6 +9,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 from app.core.database import Base, engine, SessionLocal
 from app.models.focus_area import FocusArea
 from app.models.issue_type import IssueType
@@ -217,8 +218,31 @@ def init_issue_types(db: Session):
 
 def init_database():
     """Initialize database with tables and seed data"""
+    # Import all models to ensure they're registered with Base
+    from app.models.audit_log import AuditLog
+    from app.models.data_source import DataSource
+    from app.models.finding import Finding
+    from app.models.analysis_run import AnalysisRun
+    from app.models.risk_assessment import RiskAssessment
+    from app.models.money_loss import MoneyLossCalculation
+    
     # Create all tables
     Base.metadata.create_all(bind=engine)
+
+    # Ensure new columns/indexes exist for backward compatibility
+    with engine.connect() as connection:
+        connection.execute(
+            text(
+                "ALTER TABLE IF EXISTS analysis_runs "
+                "ADD COLUMN IF NOT EXISTS data_source_id INTEGER"
+            )
+        )
+        connection.execute(
+            text(
+                "CREATE INDEX IF NOT EXISTS ix_analysis_runs_data_source_id "
+                "ON analysis_runs (data_source_id)"
+            )
+        )
     
     # Seed initial data
     db = SessionLocal()

@@ -34,7 +34,8 @@ class CSVParser(BaseParser):
                 result['errors'].append("Could not decode CSV file with any standard encoding")
                 return result
             
-            # Convert to records
+            # Convert to records, handling NaN values
+            df = df.where(pd.notna(df), None)
             records = df.to_dict('records')
             
             result['metadata'] = {

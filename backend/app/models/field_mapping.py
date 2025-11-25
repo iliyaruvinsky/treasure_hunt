@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text
+from sqlalchemy import Column, Integer, String, Text, Index
 from app.core.database import Base
 
 
@@ -14,8 +14,6 @@ class FieldMapping(Base):
     
     # Index for efficient lookups
     __table_args__ = (
-        {"indexes": [
-            {"name": "idx_source_field", "columns": ["source_system", "source_field_name"]}
-        ]}
+        Index('idx_source_field', 'source_system', 'source_field_name'),
     )
 
